@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>YelpCamp</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+   
+    <body onload="draw();" style="">
+        <div style="display: Inline-block; width: 300px;"> 
+            <form name="generalInput" id = "inputForm">
+                <table>
+                  <tr>
+                    <td>Number of Servings Per Container</td>
+                    <td>
+                      <input name="servingPerCont" type="text" value="9" required>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Serving Size</td>
+                    <td>
+                      <input name="servingSize" type="text" value="2/3" required>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Serving Size Unit</td>
+                    <td>
+                      <input name="servingSizeUnit" type="text" value="cups" required>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Calories</td>
+                    <td>
+                      <input name="cal" type="text" value="230" required>
+                    </td>
+                  </tr>
+        </div> 
+        <script src="/main.js"></script>
+        <div style="padding:50px; display: Inline-block;">
+         <canvas id="canvas" width="226" height="430"></canvas>
+        </div>
+    </body>
+</html>
