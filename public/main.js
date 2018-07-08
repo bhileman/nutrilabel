@@ -1,24 +1,6 @@
 'use strict'
 
-/* 
 
-7/5/18 -
-Status: currently working and updating in real time from table to canvas. Only built out for first 4 entires
-Next: 
-DONE 1. Finish adding object items to canvas fields
-DONE 2. Build out the rest of the table with required fields and change design to two column
-DONE 3. Create calculations for percentages. add in recom. daily intake for each in new object? add function to object?
-
-Initial Launch Feature Backlog:
-- drop down for serving size units and calculated units, add in conversion logic
-- dynamic canvas width and height
-- Optional vitamin section with logic built-in logic to remove
-- Download canvas options (png, svg, jpg?)
-- Clean up app.js rather than using the two sendfiles, middleware?
-- add styling, logo/header, footer+disc
-- 
-
-*/
 
 let table = document.getElementById('inputForm');
 let inputs = table.getElementsByTagName('input');
@@ -117,7 +99,6 @@ let vitDailyValue = {
 //Canvas Parameters
 let cWidth = 226;
 let cHeight = 430;
-
 
 
 /**

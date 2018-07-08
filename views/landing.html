@@ -5,148 +5,173 @@
         <title>Nutrilabel</title>
         <link rel="stylesheet" type="text/css" href="css/styles.css" >
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,900" rel="stylesheet">
     </head>
    
     <body onload="draw();" >
-          <div class="row">
+        <nav class="navbar navbar-light fixed-top">
+                <img src="images/nlabel_logo.png" width="41" height="50" alt="">
+        </nav>
+
+
+        <div class="row">
             
             <div class="col-sm-8" id = "formSection">
+            
             <form name="generalInput" id = "inputForm">
                 <table>
                   <tr>
-                    <label for="servingPerCont">Number of Servings Per Container</label>
                     <td>
-                      <input name="servingPerCont" type="text" value="9" required>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Serving Size</td>
-                    <td>
-                      <input name="servingSize" type="text" value="2/3" required>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Serving Size Unit</td>
-                    <td>
-                      <input name="servingSizeUnit" type="text" value="cups" required>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Serving Size Secondary Unit</td>
-                    <td>
-                      <input name="servingSizeCalcUnit" type="text" value="g" required>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Serving Size Secondary Value</td>
-                    <td>
-                      <input name="servingSizeCalc" type="text" value="100" required>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Calories</td>
-                    <td>
-                      <input name="cal" type="text" value="230" required>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Total Fat</td>
-                    <td>
-                      <input name="totalFat" type="text" value="8" required>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Saturated Fat</td>
-                    <td>
-                      <input name="satFat" type="text" value="1" required>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Trans Fat</td>
-                    <td>
-                      <input name="transFat" type="text" value="0" required>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Cholesterol</td>
-                    <td>
-                      <input name="cholest" type="text" value="0" required>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Sodium</td>
-                    <td>
-                      <input name="sodium" type="text" value="160" required>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Total Carbohydrates</td>
-                    <td>
-                      <input name="totalCarbs" type="text" value="37" required>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Dietary Fiber</td>
-                    <td>
-                      <input name="fiber" type="text" value="4" required>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Total Sugars</td>
-                    <td>
-                      <input name="sugar" type="text" value="12" required>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Added Sugars</td>
-                    <td>
-                      <input name="addSugar" type="text" value="10" required>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Protein</td>
-                    <td>
-                      <input name="protein" type="text" value="3" required>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Vitamin D</td>
-                    <td>
-                      <input name="vitD" type="text" value="2" required>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Calcium</td>
-                    <td>
-                      <input name="calcium" type="text" value="260" required>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Iron</td>
-                    <td>
-                      <input name="iron" type="text" value="8" required>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Potassium</td>
-                    <td>
-                      <input name="pota" type="text" value="235" required>
+                        <label for="servingPerCont">Servings Per Container</label>
+                        <input name="servingPerCont" type="text" value="8" onfocus="this.value=''">
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <a class="btn btn-outline-dark" id="download" role="button">Download as image</a>
+                        <label for="servingSizeUnit">Serving Size Unit</label>
+                        <input name="servingSizeUnit" type="text" value="cups" onfocus="this.value=''">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <label for="servingSize">Serving Size Quantity</label>
+                        <input name="servingSize" type="text" value="2/3" onfocus="this.value=''">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <label for="servingSizeCalc">Serving Size Quantity in Grams (g)</label>
+                        <input name="servingSizeCalc" type="text" value="100" onfocus="this.value=''">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <label for="cal">Calories</label>
+                        <input name="cal" type="text" value="230" onfocus="this.value=''">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <label for="totalFat">Total Fat (g)</label>
+                      <input name="totalFat" type="text" value="8" onfocus="this.value=''">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <label for="satFat">Saturated Fat (g)</label>
+                      <input name="satFat" type="text" value="1" onfocus="this.value=''">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <label for="transFat">Trans Fat (g)</label>
+                      <input name="transFat" type="text" value="0" onfocus="this.value=''">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <label for="cholest">Cholesterol (mg)</label>
+                      <input name="cholest" type="text" value="0" onfocus="this.value=''">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <label for="sodium">Sodium (mg)</label>
+                      <input name="sodium" type="text" value="160" onfocus="this.value=''">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <label for="totalCarbs">Total Carbohydrates (g)</label>
+                      <input name="totalCarbs" type="text" value="37" onfocus="this.value=''">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <label for="fiber">Dietary Fiber (g)</label>
+                      <input name="fiber" type="text" value="4" onfocus="this.value=''">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <label for="sugar">Sugars (g)</label>
+                      <input name="sugar" type="text" value="12" onfocus="this.value=''">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <label for="addSugar">Added Sugars (g)</label>
+                      <input name="addSugar" type="text" value="10" onfocus="this.value=''">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <label for="protein">Protein (g)</label>
+                      <input name="protein" type="text" value="3" onfocus="this.value=''">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <label for="vitD">Vitamin D (mcg)</label>
+                      <input name="vitD" type="text" value="2" onfocus="this.value=''">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <label for="calcium">Calcium (mg)</label>
+                      <input name="calcium" type="text" value="260" onfocus="this.value=''">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <label for="iron">Iron (mg)</label>
+                      <input name="iron" type="text" value="8" onfocus="this.value=''">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <label for="pota">Potassium (mg)</label>
+                      <input name="pota" type="text" value="235" onfocus="this.value=''">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      
                     </td>
                   </tr>
                 </table>
             </form>
-            <script src="/main.js"></script>
+            
             </div>
             
-            <div class="col-sm-4" style= "margin-top: 5em; padding:20px; background-color: white;">
-              <canvas id="canvas" width="226" height="430"></canvas> 
+            <div class="col-sm-4" id="labelSection">
+                <div class="sticky-top">
+                <table>
+                  <tr>
+                    <td>
+                        <canvas id="canvas" width="226" height="430"></canvas> 
+                    </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        <a href="#" class="hvr-overline-reveal button" id="download">
+                            Download Label</a>
+                        </a>             
+                      </td>
+                  </tr>
+                </table> 
+                </div> 
             </div>
           </div>
+          <div class="footer">
+              <p>
+                  Your use of the Service is at your sole risk. The Service is provided on an "AS IS" and "AS AVAILABLE" basis. The Service is provided without warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, non-infringement or course of performance.
+              </p>
+              <p>
+                  © Copyright 2018 Nutrition Labeler? . All Rights Reserved.
+              </p>
+          </div>
+          <script src="/main.js"></script>
     </body>
 </html>
