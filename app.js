@@ -1,18 +1,22 @@
 var express = require("express"),
     app = express(),
+    path = require("path"),
     bodyParser = require("body-parser");
 
-// need to serve up static files middleware   
+app.set('view engine', 'html');
+app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.get("/", function(req, res){
-    res.sendfile("views/landing.html");  
+    res.sendFile('views/landing.html' , { root : __dirname});
+  
 });
 
+/*
 app.get("/main.js", function(req, res){
     res.sendfile("views/main.js");  
 });
-
+*/
 
 // Tell Express to listen for requests
 app.listen(3000, () => console.log('Example app listening on port 3000!'));
