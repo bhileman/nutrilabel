@@ -1,7 +1,6 @@
 'use strict'
 
 
-
 let table = document.getElementById('inputForm');
 let inputs = table.getElementsByTagName('input');
 
@@ -116,9 +115,19 @@ function downloadCanvas(link, canvasId, filename) {
  * parameter (=the link element), ID of the canvas and a filename.
 */
 document.getElementById('download').addEventListener('click', function() {
-    downloadCanvas(this, 'canvas', 'test.png');
+    let filename = makeFilename();
+    downloadCanvas(this, 'canvas', 'lblmaker_'+ filename + '.png');
 }, false);
 
+function makeFilename() {
+  var text = "";
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  for (var i = 0; i < 6; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+  return text;
+}
 
 function calculatePerc(inputAmount, dailyValue) {
     if (inputAmount != 0) {

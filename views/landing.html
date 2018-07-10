@@ -5,13 +5,12 @@
         <title>Nutrilabel</title>
         <link rel="stylesheet" type="text/css" href="css/styles.css" >
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,900" rel="stylesheet">
     </head>
    
     <body onload="draw();" >
-        <nav class="navbar navbar-light fixed-top">
-                <img src="images/nlabel_logo.png" width="41" height="50" alt="">
+        <nav class="navbar" style="z-index: 1; margin-bottom: -70px;">
+                <img src="images/lbl_logo_2.png" width="56" height="49" alt="">
         </nav>
 
 
@@ -19,6 +18,7 @@
             
             <div class="col-sm-8" id = "formSection">
             
+
             <form name="generalInput" id = "inputForm">
                 <table>
                   <tr>
@@ -155,9 +155,35 @@
                   </tr>
                   <tr>
                       <td>
-                        <a href="#" class="hvr-overline-reveal button" id="download">
-                            Download Label</a>
+                        <p id="basicText" style="">
+                            <strong>Basic Nutrition Label</strong>
+                        </p>
+                        <a href="#" class="hvr-overline-reveal buttonOutline" id="download">
+                            Download Free Label</a>
                         </a>             
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        <p id="premiumText">
+                           <strong>Print Ready Package</strong>
+                               <ul id="premiumList">
+                                   <li>
+                                       6 Different Formats (tabular,....)
+                                   </li>
+                                    <li>
+                                       High Resolution PNG & JPG
+                                   </li>
+                                   <li>
+                                       SVG Vector File *Preferred by Printers*
+                                   </li>
+                               </ul>
+                        <a href="#" class="hvr-overline-reveal button">
+                            Print Ready Package
+                            <br> 
+                            (coming soon)
+                        </a>  
+                        </p>             
                       </td>
                   </tr>
                 </table> 
@@ -169,7 +195,7 @@
                   Your use of the Service is at your sole risk. The Service is provided on an "AS IS" and "AS AVAILABLE" basis. The Service is provided without warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, non-infringement or course of performance.
               </p>
               <p>
-                  © Copyright 2018 Nutrition Labeler? . All Rights Reserved.
+                  © Copyright 2018 lbl maker . All Rights Reserved.
               </p>
           </div>
           <script src="/main.js"></script>

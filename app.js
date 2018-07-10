@@ -1,12 +1,14 @@
 var express = require("express"),
     app = express(),
     path = require("path"),
-    bodyParser = require("body-parser");
+    bodyParser = require("body-parser"),
+    helmet = require('helmet');
 
 app.set('view engine', 'html');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(helmet())
 
 app.get("/", function(req, res){
     res.sendFile('views/landing.html' , { root : __dirname});
