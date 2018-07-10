@@ -1,18 +1,21 @@
 {
-  "name": "nlabel_1",
+  "name": "lblmaker",
   "version": "1.0.0",
-  "description": "",
+  "description": "quick nutrition label maker",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "lbl maker",
+  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "helmet": "^3.12.1",
     "path": "^0.12.7"
+  },
+  "engines": {
+    "node": "v8.11.3"
   }
 }
