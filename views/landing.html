@@ -14,151 +14,167 @@
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-
           gtag('config', 'UA-66064500-4');
         </script>
 
     </head>
    
     <body onload="draw();" >
-        <nav class="navbar" style="z-index: 1; margin-bottom: -70px;">
-                <img src="images/lbl_logo_2.png" width="56" height="49" alt="">
+        <nav class="subnav">
+             <span class="navbutton">
+               <a href="">SUPPLEMENT LABEL</a> 
+             </span>
+             <span class="navbutton">
+                <a href="">FEEDBACK</a> 
+             </span>
+              <span class="navbutton">
+                <a href="">LEARN MORE</a> 
+             </span>
         </nav>
 
+        <nav class="navbar navbar-expand-lg">
+          <div class="mx-auto ">
+               <a class="navbar-brand mx-auto" href="#">
+                <img src="images/lbl_logo_4.png" width="70" height="70" alt="">
+              </a>
+          </div>
+        </nav>
 
-        <div class="row">
-            
-            <div class="col-sm-8" id = "formSection">
-            
+      <div class = "mainContainer">
+        
+        <div class="notice">
+          <h3>Time To Upgrade Your Label</h3>
+          <p>
+            The FDA announced the new Nutrition Facts label for packaged foods, the new label will make it easier for consumers to make better informed food choices. For manufacturers with $10 million or more in annual food sales you must update by <strong>January 1, 2020</strong> . Manufacturers with less than $10 million in annual food sales would receive an extra year to comply – until January 1, 2021 <a href="">  Learn More </a>
+          </p>
+          <p>
+            <strong>Don't already have your nutrition facts for your product?</strong>  Learn how you can get these values for free. <a href=""> Read More </a> 
+          </p>          
+        </div>
 
-            <form name="generalInput" id = "inputForm">
-                <table>
-                  <tr>
-                    <td>
-                        <label for="servingPerCont">Servings Per Container</label>
-                        <input name="servingPerCont" type="text" value="8" onfocus="this.value=''">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                        <label for="servingSizeUnit">Serving Size Unit</label>
-                        <input name="servingSizeUnit" type="text" value="cups" onfocus="this.value=''">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                        <label for="servingSize">Serving Size Quantity</label>
-                        <input name="servingSize" type="text" value="2/3" onfocus="this.value=''">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                        <label for="servingSizeCalc">Serving Size Quantity in Grams (g)</label>
-                        <input name="servingSizeCalc" type="text" value="100" onfocus="this.value=''">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                        <label for="cal">Calories</label>
-                        <input name="cal" type="text" value="230" onfocus="this.value=''">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                        <label for="totalFat">Total Fat (g)</label>
-                      <input name="totalFat" type="text" value="8" onfocus="this.value=''">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                        <label for="satFat">Saturated Fat (g)</label>
-                      <input name="satFat" type="text" value="1" onfocus="this.value=''">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                        <label for="transFat">Trans Fat (g)</label>
-                      <input name="transFat" type="text" value="0" onfocus="this.value=''">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                        <label for="cholest">Cholesterol (mg)</label>
-                      <input name="cholest" type="text" value="0" onfocus="this.value=''">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                        <label for="sodium">Sodium (mg)</label>
-                      <input name="sodium" type="text" value="160" onfocus="this.value=''">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                        <label for="totalCarbs">Total Carbohydrates (g)</label>
-                      <input name="totalCarbs" type="text" value="37" onfocus="this.value=''">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                        <label for="fiber">Dietary Fiber (g)</label>
-                      <input name="fiber" type="text" value="4" onfocus="this.value=''">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                        <label for="sugar">Sugars (g)</label>
-                      <input name="sugar" type="text" value="12" onfocus="this.value=''">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                        <label for="addSugar">Added Sugars (g)</label>
-                      <input name="addSugar" type="text" value="10" onfocus="this.value=''">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                        <label for="protein">Protein (g)</label>
-                      <input name="protein" type="text" value="3" onfocus="this.value=''">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                        <label for="vitD">Vitamin D (mcg)</label>
-                      <input name="vitD" type="text" value="2" onfocus="this.value=''">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                        <label for="calcium">Calcium (mg)</label>
-                      <input name="calcium" type="text" value="260" onfocus="this.value=''">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                        <label for="iron">Iron (mg)</label>
-                      <input name="iron" type="text" value="8" onfocus="this.value=''">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                        <label for="pota">Potassium (mg)</label>
-                      <input name="pota" type="text" value="235" onfocus="this.value=''">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      
-                    </td>
-                  </tr>
-                </table>
-            </form>
+        <div class="row">    
+          <div class="col-sm-8" id = "formSection">
+              <form name="generalInput" id = "inputForm" >
+                <div class = "form-group row">
+                      <label class="col-6 col-form-label" for="servingPerCont">Servings Per Container</label>
+                      <div class="col-sm-6">
+                         <input name="servingPerCont" type="text" value="8" onfocus="this.value=''">
+                      </div>
+                </div>
+                <div class = "form-group row">
+                      <label class="col-6 col-form-label" for="servingSizeUnit">Serving Size Unit</label>
+                      <div class="col-sm-6">
+                         <input name="servingSizeUnit" type="text" value="cups" onfocus="this.value=''">
+                      </div>
+                </div>
+                <div class = "form-group row">
+                      <label class="col-6 col-form-label" for="servingSize">Serving Size Quantity</label>
+                      <div class="col-sm-6">
+                         <input name="servingSize" type="text" value="2/3" onfocus="this.value=''">
+                      </div>
+                </div>
+                <div class = "form-group row">
+                      <label class="col-6 col-form-label" for="servingSizeCalc">Serving Size Quantity in Grams (g)</label>
+                      <div class="col-sm-6">
+                         <input name="servingSizeCalc" type="text" value="100" onfocus="this.value=''">
+                      </div>
+                </div>
+                <div class = "form-group row">
+                      <label class="col-6 col-form-label" for="cal">Calories</label>
+                      <div class="col-sm-6">
+                         <input name="cal" type="text" value="230" onfocus="this.value=''">
+                      </div>
+                </div>
+                <div class = "form-group row">
+                      <label class="col-6 col-form-label" for="totalFat">Total Fat (g)</label>
+                      <div class="col-sm-6">
+                       <input name="totalFat" type="text" value="8" onfocus="this.value=''">
+                      </div>
+                </div>
+                <div class = "form-group row">
+                      <label class="col-6 col-form-label" for="satFat">Saturated Fat (g)</label>
+                      <div class="col-sm-6">
+                       <input name="satFat" type="text" value="1" onfocus="this.value=''">
+                      </div>
+                </div>
+                <div class = "form-group row">
+                      <label class="col-6 col-form-label" for="transFat">Trans Fat (g)</label>
+                      <div class="col-sm-6">
+                       <input name="transFat" type="text" value="0" onfocus="this.value=''">
+                      </div>
+                </div>
+                <div class = "form-group row">
+                      <label class="col-6 col-form-label" for="cholest">Cholesterol (mg)</label>
+                      <div class="col-sm-6">
+                       <input name="cholest" type="text" value="0" onfocus="this.value=''">
+                      </div>
+                </div>
+                <div class = "form-group row">
+                      <label class="col-6 col-form-label" for="sodium">Sodium (mg)</label>
+                      <div class="col-sm-6">
+                       <input name="sodium" type="text" value="160" onfocus="this.value=''">
+                      </div>
+                </div>
+                <div class = "form-group row">
+                      <label class="col-6 col-form-label" for="totalCarbs">Total Carbohydrates (g)</label>
+                      <div class="col-sm-6">
+                       <input name="totalCarbs" type="text" value="37" onfocus="this.value=''">
+                      </div>
+                </div>
+                <div class = "form-group row">
+                      <label class="col-6 col-form-label" for="fiber">Dietary Fiber (g)</label>
+                      <div class="col-sm-6">
+                       <input name="fiber" type="text" value="4" onfocus="this.value=''">
+                      </div>
+                </div>
+                <div class = "form-group row">
+                      <label class="col-6 col-form-label" for="sugar">Sugars (g)</label>
+                      <div class="col-sm-6">
+                       <input name="sugar" type="text" value="12" onfocus="this.value=''">
+                      </div>
+                </div>
+                <div class = "form-group row">
+                      <label class="col-6 col-form-label" for="addSugar">Added Sugars (g)</label>
+                      <div class="col-sm-6">
+                       <input name="addSugar" type="text" value="10" onfocus="this.value=''">
+                      </div>
+                </div>
+                <div class = "form-group row">
+                      <label class="col-6 col-form-label" for="protein">Protein (g)</label>
+                      <div class="col-sm-6">
+                       <input name="protein" type="text" value="3" onfocus="this.value=''">
+                      </div>
+                </div>
+                <div class = "form-group row">
+                      <label class="col-6 col-form-label" for="vitD">Vitamin D (mcg)</label>
+                      <div class="col-sm-6">
+                       <input name="vitD" type="text" value="2" onfocus="this.value=''">
+                      </div>
+                </div>
+                <div class = "form-group row">
+                      <label class="col-6 col-form-label" for="calcium">Calcium (mg)</label>
+                      <div class="col-sm-6">
+                       <input name="calcium" type="text" value="260" onfocus="this.value=''">
+                      </div>
+                </div>
+                <div class = "form-group row">
+                      <label class="col-6 col-form-label" for="iron">Iron (mg)</label>
+                      <div class="col-sm-6">
+                       <input name="iron" type="text" value="8" onfocus="this.value=''">
+                      </div>
+                </div>
+                <div class = "form-group row">
+                      <label class="col-6 col-form-label" for="pota">Potassium (mg)</label>
+                      <div class="col-sm-6">
+                        <input name="pota" type="text" value="235" onfocus="this.value=''">
+                      </div>
+                </div>
+          </form>
             
             </div>
             
-            <div class="col-sm-4" id="labelSection">
-                <div class="sticky-top">
+            <div class="col-sm-4">
+              <div class="sticky-top" id="labelSection">
                 <table>
                   <tr>
                     <td>
@@ -167,41 +183,15 @@
                   </tr>
                   <tr>
                       <td>
-                        <p id="basicText" style="">
-                            <strong>Basic Nutrition Label</strong>
-                        </p>
-                        <a href="#" class="hvr-overline-reveal buttonOutline" id="download">
-                            Download Free Label</a>
+                        <a href="#" class="hvr-overline-reveal button" id="download">
+                            Download Label</a>
                         </a>             
                       </td>
                   </tr>
-                  <tr>
-                      <td>
-                        <p id="premiumText">
-                           <strong>Print Ready Package</strong>
-                               <ul id="premiumList">
-                                   <li>
-                                       6 Different Formats (tabular,....)
-                                   </li>
-                                    <li>
-                                       High Resolution PNG & JPG
-                                   </li>
-                                   <li>
-                                       SVG Vector File *Preferred by Printers*
-                                   </li>
-                               </ul>
-                        <a href="#" class="hvr-overline-reveal button">
-                            Print Ready Package
-                            <br> 
-                            (coming soon)
-                        </a>  
-                        </p>             
-                      </td>
-                  </tr>
                 </table> 
-                </div> 
+              </div>
             </div>
-          </div>
+              </div>
           <div class="footer">
               <p>
                   Your use of the Service is at your sole risk. The Service is provided on an "AS IS" and "AS AVAILABLE" basis. The Service is provided without warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, non-infringement or course of performance. There is no warrant that there are any errors or defects will be corrected.
@@ -212,6 +202,9 @@
                   © Copyright 2018 lbl maker . All Rights Reserved.
               </p>
           </div>
+
+        </div>
+
           <script src="/main.js"></script>
     </body>
 </html>
