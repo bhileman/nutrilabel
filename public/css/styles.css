@@ -8,7 +8,7 @@ body {
 	
 	max-width: 1000px;
 	margin:0 auto;
-	padding: 20px 10px 30px 10px;
+	padding: 20px 20px 30px 10px;
 }
 
 .row {
@@ -126,6 +126,31 @@ table, td {
 	color: #EEEEEE;
 	font-size: 12px;
 	font-style: italic;
+}
+
+
+.form-check {
+	font-size: 12px;
+	color: white;
+	margin: 10px 5px 10px 20px;
+	text-align: left;
+}
+
+.checkSection {
+
+	max-width: 500px;
+	text-align: right;
+	margin-left:auto; 
+	margin-right:0;
+	border: 1px solid #373C3D;
+	padding: 10px;
+
+}
+
+.hideForm {
+
+	display: none !important;
+
 }
 
 /*    Label Section     */
