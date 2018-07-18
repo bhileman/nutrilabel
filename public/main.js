@@ -128,6 +128,10 @@ function downloadCanvas(link, canvasId, filename) {
  * parameter (=the link element), ID of the canvas and a filename.
 */
 document.getElementById('download').addEventListener('click', function() {
+    ga('send', 'event', {
+    eventCategory: 'download',
+    eventAction: 'click',
+    });
     let filename = makeFilename();
     downloadCanvas(this, 'canvas', 'lblmaker_'+ filename + '.png');
 }, false);
