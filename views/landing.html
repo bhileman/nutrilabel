@@ -5,9 +5,8 @@
         <title>lbl maker</title>
         <link rel="stylesheet" type="text/css" href="css/styles.css" >
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,900" rel="stylesheet">
-
-
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66064500-4"></script>
         <script>
@@ -17,7 +16,12 @@
           gtag('config', 'UA-66064500-4');
         </script>
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
         <script type="text/javascript" src="/main.js" async></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+        <link rel="shortcut icon" type="image/png" href="images/lblfav.png"/>
 
     </head>
    
@@ -202,6 +206,29 @@
                         <input name="pota" type="text" value="235" onfocus="this.value=''">
                       </div>
                 </div>
+                <div class = "addsection">
+                  <ul class = "addlist" id = "addList">
+                    <li id="addListDefault" class="hideForm"> 
+                     <div class = "form-group row">
+                        <div class="col-sm-4">
+                          
+                          <input name = "addedName" type="text" class="addname" value="Name" onfocus="this.value=''">
+                        </div>
+                        <div class="col-sm-4">
+                          <input name = "addedValue" type="text" value="Value" onfocus="this.value=''">
+                        </div>
+                        <div class="col-sm-4">
+                            <input name = "addedUnit" type="text" value="Unit" onfocus="this.value=''" style="max-width: 80%;">
+                            <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="addbtn">
+                    <a onclick="addItem();"><i class="fas fa-plus-circle"></i></a>
+                  </div>
+                </div>
+
           </form>
             
             </div>
@@ -229,7 +256,7 @@
               <p>
                   Your use of the Service is at your sole risk. The Service is provided on an "AS IS" and "AS AVAILABLE" basis. The Service is provided without warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, non-infringement or course of performance. There is no warrant that there are any errors or defects will be corrected.
 
-                  By clicking "dowload free label" you agree and understand that there is no accuracy guarantee and you assume all financial and legal liability associated with using the files delivered by this service.
+                  By clicking "dowload label" you agree and understand that there is no accuracy guarantee and you assume all financial and legal liability associated with using the files delivered by this service.
               </p>
               <p>
                   © Copyright 2018 lbl maker . All Rights Reserved.

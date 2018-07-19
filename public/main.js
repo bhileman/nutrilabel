@@ -1,9 +1,6 @@
 'use strict'
 
 
-let table = document.getElementById('inputForm');
-let inputs = table.getElementsByTagName('input');
-
 let polyCheck = document.getElementById('polyFatCheck');
 let polyForm = document.getElementById('polyForm');
 let monoCheck = document.getElementById('monoFatCheck');
@@ -16,9 +13,16 @@ let cWidth = canvas.width;
 let cHeight = canvas.height;
 
 
-for (let input of inputs) {
-    input.onchange = changeEventHandler;
-  };
+
+function setEventHandler() {
+
+    let table = document.getElementById('inputForm');
+    let inputs = table.getElementsByTagName('input');
+    
+    for (let input of inputs) {
+        input.onchange = changeEventHandler;
+    };
+}
 
 function changeEventHandler(event) {
     // You can use “this” to refer to the selected element.
@@ -29,10 +33,11 @@ function changeEventHandler(event) {
             break;
         }
     };
-
-    // if(!event.target.value) alert('Please Select One');
-    // else alert('You like ' + event.target.value + ' ice cream.'); 
+    redraw();
 };
+
+
+
 
 //Canvas Input Object
 
@@ -158,7 +163,7 @@ function calculatePerc(inputAmount, dailyValue) {
 function setCanvasDim() {
 
     cWidth = 226;
-    cHeight  = 430;
+    cHeight  = 430; //430
 
     if (polyCheck.checked == true) {
         cHeight += 17;
@@ -168,9 +173,52 @@ function setCanvasDim() {
         cHeight += 17;
     }
 
+    let addedNames = document.getElementsByName("addedName");
+    let addedLength = addedNames.length - 1;
+    cHeight += addedLength * 17;
+
     canvas.style.width = cWidth.toString();
     canvas.style.height = cHeight.toString();
 
+}
+
+function addItem() {
+
+  let ul = document.getElementById("addList");
+  let li = document.getElementById("addListDefault");
+  let count = ul.getElementsByTagName("li").length - 1;
+  count = count.toString();
+  let newli = li.cloneNode(true);
+  newli.removeAttribute("class");
+  newli.setAttribute("id", count);
+  ul.appendChild(newli);
+  redraw();
+
+}
+
+
+function deleteItem(elem) {
+    console.log("click!");
+    elem.closest("li").remove();
+    redraw();
+};
+
+
+function drawAddedNames(ctx, yPos) {
+    let addedNames = document.getElementsByName("addedName");
+    let addedValues = document.getElementsByName("addedValue");
+    let addedUnits = document.getElementsByName("addedUnit");
+    for (var i = 1; i < addedNames.length; ++i) {
+        ctx.textAlign="start";
+        ctx.font='300 9pt Helvetica';
+        ctx.fillText(addedNames[i].value + "  " + addedValues[i].value + addedUnits[i].value, 6, yPos += 13);
+        ctx.beginPath();
+        ctx.moveTo(6, yPos += 4);
+        ctx.lineWidth = 1;
+        ctx.lineTo((cWidth - 6), yPos);
+        ctx.stroke();
+    }
+    return yPos;
 }
 
 
@@ -192,6 +240,7 @@ function toggleMono() {
 
 
 function draw() {
+    setEventHandler();
     if (canvas.getContext) {
 
         let ctx = canvas.getContext('2d');
@@ -505,14 +554,14 @@ function draw() {
 
 
         //Additional vitamins
-
+        let lastypos = drawAddedNames(ctx, yPos);
         
         //Disclosure Section   eventually build out with wrap function
         ctx.textAlign="start";
         ctx.font='300 6.2pt Helvetica';
-        ctx.fillText('* The % Daily Value (DV) tells you how much a nutrient in', 6, yPos += 14); //400
-        ctx.fillText('a serving of food contributes to a daily diet. 2,000 calories', 6, yPos += 10);
-        ctx.fillText('a day is used for general nutrition advice.', 6, yPos += 10);
+        ctx.fillText('* The % Daily Value (DV) tells you how much a nutrient in', 6, lastypos += 14); //400
+        ctx.fillText('a serving of food contributes to a daily diet. 2,000 calories', 6, lastypos += 10);
+        ctx.fillText('a day is used for general nutrition advice.', 6, lastypos += 10);
 
         }
 }
