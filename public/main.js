@@ -29,13 +29,10 @@ function changeEventHandler(event) {
     for (let key in canvasValues) {
         if ( key == event.target.name) {
             canvasValues[key] = event.target.value;
-            redraw();
-            break;
-        }
+        } 
     };
-    redraw();
+    redraw();   
 };
-
 
 
 
@@ -223,8 +220,10 @@ function drawAddedNames(ctx, yPos) {
 
 
 function redraw() {
+    console.log("redrawing");
     let canvas = document.getElementById('canvas');
     canvas.width = canvas.width
+    setEventHandler();
     draw();
 }
 
@@ -238,9 +237,9 @@ function toggleMono() {
     redraw();
 }
 
-
+setEventHandler();
 function draw() {
-    setEventHandler();
+    
     if (canvas.getContext) {
 
         let ctx = canvas.getContext('2d');
