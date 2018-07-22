@@ -103,8 +103,7 @@ h3 {
 
 input {
 	width: 100%;
-	padding: .2em 0 6px; 
-	padding-left: 0; 
+	padding: .2em 5px 3px; 
 	background: none;
 	color: #d3d3d3; 
 	font-size: .8em; 
@@ -153,8 +152,9 @@ table, td {
 
 }
 
-.addsection {
+#addsection {
 
+	border-top: 1px solid rgba(255, 255, 255, .1); 
 	padding-top: 20px;
 
 }
@@ -172,23 +172,52 @@ table, td {
 
 }
 
-.addbtn {
+#addsection input{
 
-	padding: 10px;
-	font-size: 30px;
+	max-width: 80%;
+
+}
+
+#addbtn {
+
+	border-top: 1px solid rgba(255, 255, 255, .1);
+	padding-top: 20px;
+	font-size: 15px;
 	color : white;
 	text-align: center;
+	max-width: 75%;
+	margin: 0 auto;
+
+}
+
+
+.activeitem {
+
+	opacity: 1.0;
+
+}
+
+.inactiveitem {
+
+	opacity: 0.5;
+
+}
+
+.btnlock {
+
+	color : #999;
 
 }
 
 .deletebtn {
 
 	font-size: 15px;
-	color : #999;
+	color : white;
 	text-align: center;
 	padding: 10px 0px 0px 10px;
 
 }
+
 
 
 /*    Label Section     */

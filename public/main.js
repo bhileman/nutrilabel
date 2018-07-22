@@ -17,14 +17,14 @@ let cHeight = canvas.height;
 function setEventHandler() {
 
     let table = document.getElementById('inputForm');
-    let inputs = table.getElementsByTagName('input');
+    let inputs = table.getElementsByTagName('input' || 'select');
     
     for (let input of inputs) {
-        input.onchange = changeEventHandler;
+        input.onchange = setNewValue;
     };
 }
 
-function changeEventHandler(event) {
+function setNewValue(event) {
     // You can use “this” to refer to the selected element.
     for (let key in canvasValues) {
         if ( key == event.target.name) {
@@ -33,7 +33,6 @@ function changeEventHandler(event) {
     };
     redraw();   
 };
-
 
 
 //Canvas Input Object
@@ -62,6 +61,29 @@ function changeEventHandler(event) {
     calcium : '260',
     iron : '8',
     pota : '235',
+    vitA : '900',
+    vitC : '90',
+    vitE : '15',
+    vitK : '120',
+    thiamin : '1.2',
+    riboflavin : '1.3',
+    niacin : '16',
+    vitB6 : '1.7',
+    folate : '400',
+    vitB12 : '2.4',
+    biotin : '30',
+    pantoAcid : '5',
+    phosph : '1250',
+    iodine : '150',
+    magnesium : '420',
+    zinc : '11',
+    selenium : '55',
+    copper : '0.9',
+    manganese : "2.3",
+    chromium : "35",
+    molybd : "45",
+    chloride : "2300",
+    choline : "550",
 
 };
 
@@ -110,6 +132,40 @@ let vitDailyValue = {
 
 };
 
+    let vitUnit = {
+
+        vitA : 'mcg',
+        vitC : 'mg',
+        calcium : 'mg',
+        iron : 'mg',
+        vitD : 'mg',
+        vitE : 'mcg',
+        vitK : 'mcg',
+        thiamin : 'mg',
+        riboflavin : 'mg',
+        niacin : 'mg',
+        vitB6 : 'mg',
+        folate : 'mcg',
+        vitB12 : 'mcg',
+        biotin : 'mcg',
+        pantoAcid : 'mg',
+        phosph : 'mg',
+        iodine : 'mcg',
+        magnesium : 'mg',
+        zinc : 'mg',
+        selenium : 'mcg',
+        copper : 'mg',
+        manganese : 'mg',
+        chromium : 'mg',
+        molybd : 'mcg',
+        chloride : 'mg',
+        pota : 'mg',
+        choline : 'mg',
+
+    };
+
+
+
 
 //var canvas = document.getElementsByTagName('canvas')[0];
 //canvas.width  = 226;
@@ -138,6 +194,8 @@ document.getElementById('download').addEventListener('click', function() {
     downloadCanvas(this, 'canvas', 'lblmaker_'+ filename + '.png');
 }, false);
 
+//document.getElementsByName('addedName').addEventListener('')
+
 function makeFilename() {
   var text = "";
   var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -150,7 +208,7 @@ function makeFilename() {
 
 function calculatePerc(inputAmount, dailyValue) {
     if (inputAmount != 0) {
-        let inputAmountConv = parseInt(inputAmount, 10);
+        let inputAmountConv = parseFloat(inputAmount, 10);
         let percentage = Math.floor( (inputAmountConv / dailyValue) *100 );
         let percentageString = percentage.toString();
         return percentageString;
@@ -170,8 +228,8 @@ function setCanvasDim() {
         cHeight += 17;
     }
 
-    let addedNames = document.getElementsByName("addedName");
-    let addedLength = addedNames.length - 1;
+    let addedNames = document.getElementsByClassName("activeitem");
+    let addedLength = addedNames.length;
     cHeight += addedLength * 17;
 
     canvas.style.width = cWidth.toString();
@@ -179,36 +237,69 @@ function setCanvasDim() {
 
 }
 
-function addItem() {
+///// Optional vitamins and minerals section ///////
 
-  let ul = document.getElementById("addList");
-  let li = document.getElementById("addListDefault");
-  let count = ul.getElementsByTagName("li").length - 1;
-  count = count.toString();
-  let newli = li.cloneNode(true);
-  newli.removeAttribute("class");
-  newli.setAttribute("id", count);
-  ul.appendChild(newli);
-  redraw();
+
+function togglePoly() {
+    polyForm.classList.toggle("hideForm");
+    redraw();
+}
+
+function toggleMono() {
+    monoForm.classList.toggle("hideForm");
+    redraw();
+}
+
+
+function showOpt() {
+
+    let optSection = document.getElementById("addsection").removeAttribute("class");
+    let addBtn = document.getElementById("addbtn").setAttribute("class","hideForm");
+
+}
+
+function addItem(elem) {
+
+    let formGroup = elem.closest('.form-group');
+    formGroup.classList.remove("inactiveitem");
+    formGroup.classList.add("activeitem");
+    redraw();
 
 }
 
 
 function deleteItem(elem) {
-    console.log("click!");
-    elem.closest("li").remove();
+
+    let formGroup = elem.closest('.form-group');
+    formGroup.classList.remove("activeitem");
+    formGroup.classList.add("inactiveitem");
     redraw();
+
 };
 
 
-function drawAddedNames(ctx, yPos) {
-    let addedNames = document.getElementsByName("addedName");
-    let addedValues = document.getElementsByName("addedValue");
-    let addedUnits = document.getElementsByName("addedUnit");
-    for (var i = 1; i < addedNames.length; ++i) {
+function drawAdded(ctx, yPos) {
+
+    let addedItems = document.querySelectorAll("div.activeitem");
+
+    for (var i = 0; i < addedItems.length; i++) {
         ctx.textAlign="start";
         ctx.font='300 9pt Helvetica';
-        ctx.fillText(addedNames[i].value + "  " + addedValues[i].value + addedUnits[i].value, 6, yPos += 13);
+
+        let addedTitle = addedItems[i].querySelector("label").querySelector("span").innerText;
+        console.log(addedTitle);
+        let addedName = addedItems[i].querySelector("input").name;
+        console.log(addedName);
+        let addedUnit = vitUnit[addedName];
+        console.log(addedUnit);
+        let addedValue = addedItems[i].querySelector("input").value;
+        console.log(addedValue);
+
+        ctx.fillText(addedTitle + "  " + addedValue + addedUnit, 6, yPos += 13);
+        
+        ctx.textAlign="right";    
+        ctx.fillText( calculatePerc(addedValue , vitDailyValue[addedName])  + '%', (cWidth - 6), yPos);
+
         ctx.beginPath();
         ctx.moveTo(6, yPos += 4);
         ctx.lineWidth = 1;
@@ -227,17 +318,7 @@ function redraw() {
     draw();
 }
 
-function togglePoly() {
-    polyForm.classList.toggle("hideForm");
-    redraw();
-}
 
-function toggleMono() {
-    monoForm.classList.toggle("hideForm");
-    redraw();
-}
-
-setEventHandler();
 function draw() {
     
     if (canvas.getContext) {
@@ -553,7 +634,7 @@ function draw() {
 
 
         //Additional vitamins
-        let lastypos = drawAddedNames(ctx, yPos);
+        let lastypos = drawAdded(ctx, yPos);
         
         //Disclosure Section   eventually build out with wrap function
         ctx.textAlign="start";
@@ -565,4 +646,5 @@ function draw() {
         }
 }
 
+setEventHandler();
 draw();
