@@ -4,11 +4,14 @@ body {
 
 }
 
+
+
 .mainContainer {
 	
 	max-width: 1000px;
 	margin:0 auto;
 	padding: 20px 20px 30px 10px;
+
 }
 
 .row {
@@ -65,6 +68,13 @@ body {
 	margin-top: 15px;
 	margin-bottom: 35px;
 	border: 1px solid white;
+
+}
+
+.notice a {
+
+	color: #00B4FF;
+	text-decoration: underline;
 
 }
 
@@ -135,14 +145,19 @@ table, td {
 	text-align: left;
 }
 
-.checkSection {
+#checkSection {
 
-	max-width: 520px;
-	text-align: right;
-	margin-left:auto; 
-	margin-right:0;
-	border: 1px solid #373C3D;
-	padding: 10px;
+	border-top: 1px solid rgba(255, 255, 255, .2);
+	border-bottom: 1px solid rgba(255, 255, 255, .2);
+	padding: 20px 0px 5px 0px;
+	margin-top: 10px;
+	margin-bottom: 15px;
+
+}
+
+#checkSection input{
+
+	max-width: 80%;
 
 }
 
@@ -159,18 +174,7 @@ table, td {
 
 }
 
-.addlist {
 
-	list-style-type: none;
-	margin: 0px;
-	padding: 0px;
-
-}
-
-.addname {
-
-
-}
 
 #addsection input{
 
@@ -185,8 +189,8 @@ table, td {
 	font-size: 15px;
 	color : white;
 	text-align: center;
-	max-width: 75%;
 	margin: 0 auto;
+	cursor: pointer;
 
 }
 
@@ -197,7 +201,19 @@ table, td {
 
 }
 
+.activemain {
+
+	opacity: 1.0;
+
+}
+
 .inactiveitem {
+
+	opacity: 0.5;
+
+}
+
+.inactivemain {
 
 	opacity: 0.5;
 
@@ -211,6 +227,7 @@ table, td {
 
 .deletebtn {
 
+	cursor: pointer;
 	font-size: 15px;
 	color : white;
 	text-align: center;

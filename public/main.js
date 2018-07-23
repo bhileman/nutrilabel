@@ -1,17 +1,9 @@
 'use strict'
 
-
-let polyCheck = document.getElementById('polyFatCheck');
-let polyForm = document.getElementById('polyForm');
-let monoCheck = document.getElementById('monoFatCheck');
-let monoForm = document.getElementById('monoForm');
-
-
 //Canvas Parameters
 let canvas = document.getElementsByTagName('canvas')[0];
 let cWidth = canvas.width;
 let cHeight = canvas.height;
-
 
 
 function setEventHandler() {
@@ -164,13 +156,6 @@ let vitDailyValue = {
 
     };
 
-
-
-
-//var canvas = document.getElementsByTagName('canvas')[0];
-//canvas.width  = 226;
-//canvas.height = 430; //430 standard
-
 /**
  * This is the function that will take care of image extracting and
  * setting proper filename for the download.
@@ -218,15 +203,11 @@ function calculatePerc(inputAmount, dailyValue) {
 function setCanvasDim() {
 
     cWidth = 226;
-    cHeight  = 430; //430
+    cHeight  = 430; //430 default
 
-    if (polyCheck.checked == true) {
-        cHeight += 17;
-    }
-
-    if (monoCheck.checked == true) {
-        cHeight += 17;
-    }
+    let addedNamesMain = document.getElementsByClassName("activemain");
+    let addedLengthMain = addedNamesMain.length;
+    cHeight += addedLengthMain * 17;
 
     let addedNames = document.getElementsByClassName("activeitem");
     let addedLength = addedNames.length;
@@ -238,17 +219,6 @@ function setCanvasDim() {
 }
 
 ///// Optional vitamins and minerals section ///////
-
-
-function togglePoly() {
-    polyForm.classList.toggle("hideForm");
-    redraw();
-}
-
-function toggleMono() {
-    monoForm.classList.toggle("hideForm");
-    redraw();
-}
 
 
 function showOpt() {
@@ -267,6 +237,15 @@ function addItem(elem) {
 
 }
 
+function addItemMain(elem) {
+
+    let formGroup = elem.closest('.form-group');
+    formGroup.classList.remove("inactivemain");
+    formGroup.classList.add("activemain");
+    redraw();
+
+}
+
 
 function deleteItem(elem) {
 
@@ -277,6 +256,38 @@ function deleteItem(elem) {
 
 };
 
+function deleteItemMain(elem) {
+
+    let formGroup = elem.closest('.form-group');
+    formGroup.classList.remove("activemain");
+    formGroup.classList.add("inactivemain");
+    redraw();
+
+};
+
+function drawAddedMain(ctx, yPos) {
+
+    let addedItems = document.querySelectorAll("div.activemain");
+
+    for (var i = 0; i < addedItems.length; i++) {
+        ctx.textAlign="start";
+        ctx.font='300 9pt Helvetica';
+
+        let addedTitle = addedItems[i].querySelector("label").querySelector("span").innerText;
+        let addedName = addedItems[i].querySelector("input").name;
+        let addedUnit = vitUnit[addedName];
+        let addedValue = addedItems[i].querySelector("input").value;
+
+        ctx.fillText(addedTitle + "  " + addedValue + 'g', 20, yPos += 13);
+        
+        ctx.beginPath();
+        ctx.moveTo(6, yPos += 4);
+        ctx.lineWidth = 1;
+        ctx.lineTo((cWidth - 6), yPos);
+        ctx.stroke();
+    }
+    return yPos;
+}
 
 function drawAdded(ctx, yPos) {
 
@@ -285,26 +296,28 @@ function drawAdded(ctx, yPos) {
     for (var i = 0; i < addedItems.length; i++) {
         ctx.textAlign="start";
         ctx.font='300 9pt Helvetica';
-
         let addedTitle = addedItems[i].querySelector("label").querySelector("span").innerText;
-        console.log(addedTitle);
         let addedName = addedItems[i].querySelector("input").name;
-        console.log(addedName);
         let addedUnit = vitUnit[addedName];
-        console.log(addedUnit);
         let addedValue = addedItems[i].querySelector("input").value;
-        console.log(addedValue);
 
         ctx.fillText(addedTitle + "  " + addedValue + addedUnit, 6, yPos += 13);
         
         ctx.textAlign="right";    
         ctx.fillText( calculatePerc(addedValue , vitDailyValue[addedName])  + '%', (cWidth - 6), yPos);
-
-        ctx.beginPath();
-        ctx.moveTo(6, yPos += 4);
-        ctx.lineWidth = 1;
-        ctx.lineTo((cWidth - 6), yPos);
-        ctx.stroke();
+        if (i == (addedItems.length-1)) {
+            ctx.beginPath();
+            ctx.moveTo(6, yPos += 6);
+            ctx.lineWidth = 3;
+            ctx.lineTo((cWidth - 6), yPos);
+            ctx.stroke();
+        } else {
+            ctx.beginPath();
+            ctx.moveTo(6, yPos += 4);
+            ctx.lineWidth = 1;
+            ctx.lineTo((cWidth - 6), yPos);
+            ctx.stroke();
+        };
     }
     return yPos;
 }
@@ -351,20 +364,7 @@ function draw() {
         
         //Servings Size title
         ctx.font='900 11pt Helvetica';
-        ctx.fillText('Serving size', 6, yPos += 16); //64
-        
-        //Servings Size qty
-        
-        //total string length calc
-        /*
-        let servingSizeLen = canvasValues.servingSize.length;
-        let servingSizeUnitLen = canvasValues.servingSizeUnit.length;
-        let servingSizeCalcLen = servingSizeCalc.length;
-        let lengthServing = servingSizeLen + servingSizeUnitLen + servingSizeCalcLen;
-        let lengthFactor = 11;
-        let servingPlacement = lengthServing * lengthFactor;
-        */
-        
+        ctx.fillText('Serving size', 6, yPos += 16); //64        
         ctx.font='900 11pt Helvetica';
         ctx.textAlign="right"; 
         ctx.fillText(canvasValues.servingSize + ' ' + canvasValues.servingSizeUnit + 
@@ -391,15 +391,6 @@ function draw() {
         ctx.textAlign="right";
         ctx.font='900 25pt Helvetica';
         ctx.fillText(canvasValues.cal, (cWidth - 6), yPos);
-        /*
-        if (cal >= 1000){
-            ctx.fillText(cal, (cWidth - 79), 112);
-        }else if (cal >= 100) {
-            ctx.fillText(cal, (cWidth - 61), 112);
-        }else {
-            ctx.fillText(cal, (cWidth - 43), 112);
-        }
-        */
         
         //4 pt seperator line
         ctx.beginPath();
@@ -459,34 +450,8 @@ function draw() {
         ctx.lineTo((cWidth - 6), yPos);
         ctx.stroke();
 
-
-        //Polysat Fat
-        if (polyCheck.checked == true) {
-            ctx.textAlign="start"; 
-            ctx.font='300 9pt Helvetica';
-            ctx.fillText('Polyunsaturated Fat ' + canvasValues.polyFat + 'g', 20, yPos += 13);
-            ctx.beginPath();
-            ctx.moveTo(6, yPos += 4); 
-            ctx.lineWidth = 1;
-            ctx.lineTo((cWidth - 6), yPos);
-            ctx.stroke();
-        }
-
-
-
-        //Monosat Fat
-
-        if (monoCheck.checked == true) {
-            ctx.textAlign="start"; 
-            ctx.font='300 9pt Helvetica';
-            ctx.fillText('Monounsaturated Fat ' + canvasValues.monoFat + 'g', 20, yPos += 13);
-            ctx.beginPath();
-            ctx.moveTo(6, yPos += 4); 
-            ctx.lineWidth = 1;
-            ctx.lineTo((cWidth - 6), yPos);
-            ctx.stroke();
-        }
-
+        //Additional Fats
+        yPos = drawAddedMain(ctx, yPos);
 
         //Cholesterol
         ctx.font='900 9pt Helvetica';
@@ -626,12 +591,21 @@ function draw() {
         ctx.fillText('Potassium  ' + canvasValues.pota + 'mg', 6, yPos += 13); //380
         ctx.textAlign="right";
         ctx.fillText( calculatePerc(canvasValues.pota, vitDailyValue.pota) + '%', (cWidth - 6), yPos);
-        ctx.beginPath();
-        ctx.moveTo(6, yPos += 6); //386
-        ctx.lineWidth = 4;
-        ctx.lineTo((cWidth - 6), yPos);
-        ctx.stroke();
-
+        
+        let addedItems = document.querySelectorAll("div.activeitem");
+        if (addedItems === undefined || addedItems.length == 0) {
+            ctx.beginPath();
+            ctx.moveTo(6, yPos += 6); 
+            ctx.lineWidth = 4;
+            ctx.lineTo((cWidth - 6), yPos);
+            ctx.stroke();
+        } else {
+            ctx.beginPath();
+            ctx.moveTo(6, yPos += 4); 
+            ctx.lineWidth = 1;
+            ctx.lineTo((cWidth - 6), yPos);
+            ctx.stroke();
+        }
 
         //Additional vitamins
         let lastypos = drawAdded(ctx, yPos);
@@ -639,7 +613,7 @@ function draw() {
         //Disclosure Section   eventually build out with wrap function
         ctx.textAlign="start";
         ctx.font='300 6.2pt Helvetica';
-        ctx.fillText('* The % Daily Value (DV) tells you how much a nutrient in', 6, lastypos += 14); //400
+        ctx.fillText('* The % Daily Value (DV) tells you how much a nutrient in', 6, lastypos += 13); 
         ctx.fillText('a serving of food contributes to a daily diet. 2,000 calories', 6, lastypos += 10);
         ctx.fillText('a day is used for general nutrition advice.', 6, lastypos += 10);
 

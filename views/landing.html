@@ -55,7 +55,10 @@
           </p>
           <p>
             <strong>Don't already have your nutrition facts for your product?</strong>  Learn how you can get these values for free. <a href=""> Read More </a> 
-          </p>          
+          </p>
+          <p>
+            <strong>Features missing?</strong> Leave feeback on how we can improve <a href=""> Feedback </a> 
+          </p>       
         </div>
 
         <div class="row">    
@@ -115,34 +118,23 @@
                       </div>
                 </div>
 
-                <div class = "checkSection">
-                  
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="polyFatCheck" onclick="togglePoly();">
-                    <label class="form-check-label" for="polyFatCheck">Add Polyunsaturated Fat? (opt.) </label>
-                  </div>
-                  <div class="hideForm" id = "polyForm">
-                    <div class = "form-group row">
-                        <label class="col-6 col-form-label" for="polyFat">Polyunsaturated Fat (g)</label>
+                <div id = "checkSection">
+                  <div class = "form-group row inactivemain">
+                        <label class="col-6 col-form-label" for="polyFat"><span>Polyunsaturated Fat</span> (g)</label>
                         <div class="col-sm-6">
-                         <input name="polyFat" type="text" value="0.5" onfocus="this.value=''">
+                          <input name="polyFat" type="text" value="0.5" onfocus="this.value=''; addItemMain(this);">
+                          <span class="deletebtn" onclick="addItemMain(this);"><i class="fas fa-plus-circle"></i></span>
+                          <span class="deletebtn" onclick="deleteItemMain(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
-                    </div>
                   </div>
-
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="monoFatCheck" onclick="toggleMono();">
-                    <label class="form-check-label" for="monoFatCheck">Add Monounsaturated Fat? (opt.)</label>
-                  </div>
-                  <div class="hideForm" id = "monoForm">
-                    <div class = "form-group row">
-                        <label class="col-6 col-form-label" for="monoFat">Monounsaturated Fat (g)</label>
+                  <div class = "form-group row inactivemain">
+                        <label class="col-6 col-form-label" for="monoFat"><span>Monounsaturated Fat</span> (g)</label>
                         <div class="col-sm-6">
-                         <input name="monoFat" type="text" value="0.5" onfocus="this.value=''">
+                          <input name="monoFat" type="text" value="0.5" onfocus="this.value=''; addItemMain(this);">
+                          <span class="deletebtn" onclick="addItemMain(this);"><i class="fas fa-plus-circle"></i></span>
+                          <span class="deletebtn" onclick="deleteItemMain(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
-                    </div>
                   </div>
-
                 </div>
 
                 <div class = "form-group row">
@@ -214,15 +206,16 @@
 
 
                 <div id="addbtn">
-                    <a onclick="showOpt();"><i class="fas fa-plus-circle"></i></a>
+                    <a onclick="showOpt();"><i class="fas fa-plus-circle"></i>
                     <span>Add Optional Vitamins & Minerals</span>
+                    </a>
                 </div>
 
                 <div id = "addsection" class = "hideForm">
                    <div class = "form-group row inactiveitem">
                         <label class="col-6 col-form-label" for="vitA"><span>Vitamin A</span> (mcg)</label>
                         <div class="col-sm-6">
-                          <input name="vitA" type="text" value="900" onfocus="this.value=''">
+                          <input name="vitA" type="text" value="900" onfocus="this.value=''; addItem(this);">
                           <span class="deletebtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
                           <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
@@ -230,7 +223,7 @@
                   <div class = "form-group row inactiveitem">
                         <label class="col-6 col-form-label" for="vitE"> <span>Vitamin E</span> (mcg)</label>
                         <div class="col-sm-6">
-                          <input name="vitE" type="text" value="15" onfocus="this.value=''">
+                          <input name="vitE" type="text" value="15" onfocus="this.value=''; addItem(this);">
                           <span class="deletebtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
                           <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
@@ -238,7 +231,7 @@
                   <div class = "form-group row inactiveitem">
                         <label class="col-6 col-form-label" for="thiamin"><span>Thiamin</span> (mg)</label>
                         <div class="col-sm-6">
-                          <input name="thiamin" type="text" value="1.2" onfocus="this.value=''">
+                          <input name="thiamin" type="text" value="1.2" onfocus="this.value=''; addItem(this);">
                           <span class="deletebtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
                           <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
@@ -246,7 +239,7 @@
                   <div class = "form-group row inactiveitem">
                         <label class="col-6 col-form-label" for="vitC"><span>Vitamin C</span> (mg)</label>
                         <div class="col-sm-6">
-                          <input name="vitC" type="text" value="90" onfocus="this.value=''">
+                          <input name="vitC" type="text" value="90" onfocus="this.value=''; addItem(this);">
                           <span class="deletebtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
                           <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
@@ -254,7 +247,7 @@
                   <div class = "form-group row inactiveitem">
                         <label class="col-6 col-form-label" for="vitK"><span>Vitamin K</span> (mcg)</label>
                         <div class="col-sm-6">
-                          <input name="vitK" type="text" value="120" onfocus="this.value=''">
+                          <input name="vitK" type="text" value="120" onfocus="this.value=''; addItem(this);">
                           <span class="deletebtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
                           <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
@@ -262,7 +255,7 @@
                   <div class = "form-group row inactiveitem">
                         <label class="col-6 col-form-label" for="riboflavin"><span>Riboflavin</span> (mg)</label>
                         <div class="col-sm-6">
-                          <input name="riboflavin" type="text" value="1.3" onfocus="this.value=''">
+                          <input name="riboflavin" type="text" value="1.3" onfocus="this.value=''; addItem(this);">
                           <span class="deletebtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
                           <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
@@ -270,23 +263,23 @@
                   <div class = "form-group row inactiveitem">
                         <label class="col-6 col-form-label" for="niacin"><span>Niacin</span> (mg)</label>
                         <div class="col-sm-6">
-                          <input name="niacin" type="text" value="16" onfocus="this.value=''">
+                          <input name="niacin" type="text" value="16" onfocus="this.value=''; addItem(this);">
                           <span class="deletebtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
                           <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
                   </div>
                   <div class = "form-group row inactiveitem">
-                        <label class="col-6 col-form-label" for="vitB6"><span>Vitamin B6</span> (mg)</label>
+                        <label class="col-6 col-form-label" for="vitB6"><span>Vitamin B<sub>6</sub></span> (mg)</label>
                         <div class="col-sm-6">
-                          <input name="vitB6" type="text" value="1.7" onfocus="this.value=''">
+                          <input name="vitB6" type="text" value="1.7" onfocus="this.value=''; addItem(this);">
                           <span class="deletebtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
                           <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
                   </div>
                   <div class = "form-group row inactiveitem">
-                        <label class="col-6 col-form-label" for="vitB12"><span>Vitamin B12</span> (mcg)</label>
+                        <label class="col-6 col-form-label" for="vitB12"><span>Vitamin B<sub>12</sub></span> (mcg)</label>
                         <div class="col-sm-6">
-                          <input name="vitB12" type="text" value="2.4" onfocus="this.value=''">
+                          <input name="vitB12" type="text" value="2.4" onfocus="this.value=''; addItem(this);">
                           <span class="deletebtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
                           <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
@@ -294,7 +287,7 @@
                   <div class = "form-group row inactiveitem">
                         <label class="col-6 col-form-label" for="folate"><span>Folate</span> (mcg)</label>
                         <div class="col-sm-6">
-                          <input name="folate" type="text" value="400" onfocus="this.value=''">
+                          <input name="folate" type="text" value="400" onfocus="this.value=''; addItem(this);">
                           <span class="deletebtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
                           <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
@@ -302,7 +295,7 @@
                   <div class = "form-group row inactiveitem">
                         <label class="col-6 col-form-label" for="biotin"><span>Biotin</span> (mcg)</label>
                         <div class="col-sm-6">
-                          <input name="biotin" type="text" value="30" onfocus="this.value=''">
+                          <input name="biotin" type="text" value="30" onfocus="this.value=''; addItem(this);">
                           <span class="deletebtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
                           <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
@@ -310,7 +303,7 @@
                   <div class = "form-group row inactiveitem">
                         <label class="col-6 col-form-label" for="pantoAcid"><span>Pantothenic Acid</span> (mg)</label>
                         <div class="col-sm-6">
-                          <input name="pantoAcid" type="text" value="5" onfocus="this.value=''">
+                          <input name="pantoAcid" type="text" value="5" onfocus="this.value=''; addItem(this);">
                           <span class="deletebtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
                           <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
@@ -318,7 +311,7 @@
                   <div class = "form-group row inactiveitem">
                         <label class="col-6 col-form-label" for="phosph"><span>Phosphorus</span> (mg)</label>
                         <div class="col-sm-6">
-                          <input name="phosph" type="text" value="1250" onfocus="this.value=''">
+                          <input name="phosph" type="text" value="1250" onfocus="this.value=''; addItem(this);">
                           <span class="deletebtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
                           <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
@@ -326,7 +319,7 @@
                   <div class = "form-group row inactiveitem">
                         <label class="col-6 col-form-label" for="iodine"><span>Iodine</span> (mcg)</label>
                         <div class="col-sm-6">
-                          <input name="iodine" type="text" value="150" onfocus="this.value=''">
+                          <input name="iodine" type="text" value="150" onfocus="this.value=''; addItem(this);">
                           <span class="deletebtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
                           <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
@@ -334,7 +327,7 @@
                   <div class = "form-group row inactiveitem">
                         <label class="col-6 col-form-label" for="magnesium"><span>Magnesium</span> (mg)</label>
                         <div class="col-sm-6">
-                          <input name="magnesium" type="text" value="420" onfocus="this.value=''">
+                          <input name="magnesium" type="text" value="420" onfocus="this.value=''; addItem(this);">
                           <span class="deletebtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
                           <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
@@ -342,7 +335,7 @@
                   <div class = "form-group row inactiveitem">
                         <label class="col-6 col-form-label" for="zinc"><span>Zinc</span> (mg)</label>
                         <div class="col-sm-6">
-                          <input name="zinc" type="text" value="11" onfocus="this.value=''">
+                          <input name="zinc" type="text" value="11" onfocus="this.value=''; addItem(this);">
                           <span class="deletebtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
                           <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
@@ -350,7 +343,7 @@
                   <div class = "form-group row inactiveitem">
                         <label class="col-6 col-form-label" for="selenium"><span>Selenium</span> (mcg)</label>
                         <div class="col-sm-6">
-                          <input name="selenium" type="text" value="55" onfocus="this.value=''">
+                          <input name="selenium" type="text" value="55" onfocus="this.value=''; addItem(this);">
                           <span class="deletebtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
                           <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
@@ -358,7 +351,7 @@
                   <div class = "form-group row inactiveitem">
                         <label class="col-6 col-form-label" for="copper"><span>Copper</span> (mg)</label>
                         <div class="col-sm-6">
-                          <input name="copper" type="text" value="0.9" onfocus="this.value=''">
+                          <input name="copper" type="text" value="0.9" onfocus="this.value=''; addItem(this);">
                           <span class="deletebtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
                           <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
@@ -366,7 +359,7 @@
                   <div class = "form-group row inactiveitem">
                         <label class="col-6 col-form-label" for="manganese"><span>Manganese</span> (mg)</label>
                         <div class="col-sm-6">
-                          <input name="manganese" type="text" value="2.3" onfocus="this.value=''">
+                          <input name="manganese" type="text" value="2.3" onfocus="this.value=''; addItem(this);">
                           <span class="deletebtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
                           <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
@@ -374,7 +367,7 @@
                   <div class = "form-group row inactiveitem">
                         <label class="col-6 col-form-label" for="chloride"><span>Chloride</span> (mg)</label>
                         <div class="col-sm-6">
-                          <input name="chloride" type="text" value="2300" onfocus="this.value=''">
+                          <input name="chloride" type="text" value="2300" onfocus="this.value=''; addItem(this);">
                           <span class="deletebtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
                           <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
@@ -382,7 +375,7 @@
                   <div class = "form-group row inactiveitem">
                         <label class="col-6 col-form-label" for="chromium"><span>Chromium</span> (mcg)</label>
                         <div class="col-sm-6">
-                          <input name="chromium" type="text" value="35" onfocus="this.value=''">
+                          <input name="chromium" type="text" value="35" onfocus="this.value=''; addItem(this);">
                           <span class="deletebtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
                           <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
@@ -390,7 +383,7 @@
                   <div class = "form-group row inactiveitem">
                         <label class="col-6 col-form-label" for="molybd"><span>Molybdenum</span> (mcg)</label>
                         <div class="col-sm-6">
-                          <input name="molybd" type="text" value="45" onfocus="this.value=''">
+                          <input name="molybd" type="text" value="45" onfocus="this.value=''; addItem(this);">
                           <span class="deletebtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
                           <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
@@ -398,7 +391,7 @@
                   <div class = "form-group row inactiveitem">
                         <label class="col-6 col-form-label" for="choline"><span>Choline</span> (mg)</label>
                         <div class="col-sm-6">
-                          <input name="choline" type="text" value="550" onfocus="this.value=''">
+                          <input name="choline" type="text" value="550" onfocus="this.value=''; addItem(this);">
                           <span class="deletebtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
                           <span class="deletebtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
                         </div>
