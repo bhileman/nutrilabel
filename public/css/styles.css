@@ -145,19 +145,17 @@ table, td {
 	text-align: left;
 }
 
-#checkSection {
-
-	border-top: 1px solid rgba(255, 255, 255, .2);
-	border-bottom: 1px solid rgba(255, 255, 255, .2);
-	padding: 20px 0px 5px 0px;
-	margin-top: 10px;
-	margin-bottom: 15px;
-
-}
 
 #checkSection input{
 
 	max-width: 80%;
+
+}
+
+.formdivider {
+
+	padding-top: 15px;
+	border-top: 1px solid rgba(255,255,255,.2);
 
 }
 
@@ -167,65 +165,33 @@ table, td {
 
 }
 
-#addsection {
+.inactiveitem {
 
-	border-top: 1px solid rgba(255, 255, 255, .1); 
-	padding-top: 20px;
+	opacity: 0.5 !important;
+
+}
+
+.activeitem {
+
+	opacity: 1.0 !important;
 
 }
 
 
-
-#addsection input{
+#optionalInputTemplate input {
 
 	max-width: 80%;
 
 }
 
-#addbtn {
+input:invalid {
 
-	border-top: 1px solid rgba(255, 255, 255, .1);
-	padding-top: 20px;
-	font-size: 15px;
-	color : white;
-	text-align: center;
-	margin: 0 auto;
-	cursor: pointer;
+	border:1px solid red;
 
 }
 
 
-.activeitem {
-
-	opacity: 1.0;
-
-}
-
-.activemain {
-
-	opacity: 1.0;
-
-}
-
-.inactiveitem {
-
-	opacity: 0.5;
-
-}
-
-.inactivemain {
-
-	opacity: 0.5;
-
-}
-
-.btnlock {
-
-	color : #999;
-
-}
-
-.deletebtn {
+.optionalbtn {
 
 	cursor: pointer;
 	font-size: 15px;
@@ -235,6 +201,28 @@ table, td {
 
 }
 
+.newbtn {
+
+	cursor: pointer;
+	font-size: 20px;
+	color : white;
+	text-align: center;
+	padding: 10px 0px 0px 10px;
+
+}
+
+.customunit {
+
+	max-width: 70% !important;
+
+}
+
+
+.customtitle {
+
+	text-align: right;
+
+}
 
 
 /*    Label Section     */

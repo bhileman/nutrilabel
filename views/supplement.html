@@ -5,6 +5,9 @@
         <title>lbl maker - nutrition label</title>
         <link rel="stylesheet" type="text/css" href="css/styles.css" >
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.2/awesomplete.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.2/awesomplete.js" async></script>
         
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,900" rel="stylesheet">
         <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -22,16 +25,18 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 
         <link rel="shortcut icon" type="image/png" href="images/lblfav.png"/>
+
+
         
     </head>
    
     <body>
         <nav class="subnav">
              <span class="navbutton">
-               <a href="/supplement">SUPPLEMENT LABEL</a> 
+               <a href="./">NUTRITION LABEL</a> 
              </span>
              <span class="navbutton">
-                <a href="mailto:lblmaker1@gmail.com?Subject=Feedback%20Nutrition%20Label" target="_top">FEEDBACK</a> 
+                <a href="mailto:lblmaker1@gmail.com?Subject=Feedback%Supplement%20Label" target="_top">FEEDBACK</a> 
              </span>
               <span class="navbutton">
                 <a href="">LEARN MORE</a> 
@@ -49,49 +54,42 @@
       <div class = "mainContainer">
         
         <div class="notice">
-          <h3>Time To Upgrade Your Label</h3>
-          <p>
-            The FDA announced the new Nutrition Facts label for packaged foods, the new label will make it easier for consumers to make better informed food choices. For manufacturers with $10 million or more in annual food sales you must update by <strong>January 1, 2020</strong> . Manufacturers with less than $10 million in annual food sales would receive an extra year to comply – until January 1, 2021 <a href="">  Learn More </a>
-          </p>
-          <p>
-            <strong>Don't already have your nutrition facts for your product?</strong>  Learn how you can get these values for free. <a href=""> Read More </a> 
-          </p>
-          <p>
-            <strong>Features missing?</strong> Leave feeback on how we can improve <a href="mailto:lblmaker1@gmail.com?Subject=Feedback%20Nutrition%20Label" target="_top">Leave Feedback</a> 
-          </p>       
-        </div>
 
+        </div>
         <div class="row">    
           <div class="col-sm-8" id = "formSection">
-            <form name="nutrition" id = "inputForm" >
-                 <div class = "form-group row hideForm activeitem" id = "inputTemplate">
-                      <label class="col-6 col-form-label" for="">Template</label>
+            <form name="supplement" id = "inputForm" >
+                 <div class = "form-group row activeitem" id = "inputTemplate">
+                      <label class="col-6 col-form-label" for="servingSize">Serving Size</label>
                       <div class="col-sm-6">
-                         <input name="" type="text" value="" onfocus="this.value=''">
+                         <input name="servingSize" type="text" value="1 packet" onfocus="this.value=''">
                       </div>
                 </div>
-                <div class = "form-group row hideForm inactiveitem" id = "optionalInputTemplate">
-                    <label class="col-6 col-form-label" for="">Template</label>
-                    <div class="col-sm-6">
-                      <input name="" type="text" value="" onfocus="this.value=''; addItem(this);">
-                      <span class="optionalbtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
-                      <span class="optionalbtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
-                    </div>
+                <div class = "form-group row activeitem" id = "inputTemplate">
+                      <label class="col-6 col-form-label" for="servingPerCont">Servings Per Container</label>
+                      <div class="col-sm-6">
+                         <input name="servingPerCont" type="text" value="8" onfocus="this.value=''">
+                      </div>
                 </div>
-                <div class = "form-group row hideForm inactiveitem" id = "customInputTemplate">
+                <div class = "form-group row hideForm activeitem" id = "customInputTemplate">
                     <div class="col-sm-6">
-                      <input class = "customtitle" name="customtitle" type="text" value="" onfocus="this.value=''; addItem(this);">
+                      <input class = "customtitle" list="dvlist" name="customtitle" type="text" placeholder="Nutrient/Vitamin Name">
+                      <datalist id="dvlist"></datalist>
                     </div>
                     <div class="col-sm-2">
-                      <input class = "customvalue" name="customvalue" type="text" value="" onfocus="this.value=''; addItem(this);">
+                      <input class = "customvalue" name="customvalue" type="text" placeholder="Qty">
                     </div>
                     <div class="col-sm-4">
-                      <input name="customunit" type="text" value="" onfocus="this.value=''; addItem(this);">
-                      <span class="optionalbtn" onclick="addItem(this);"><i class="fas fa-plus-circle"></i></span>
-                      <span class="optionalbtn" onclick="deleteItem(this);"><i class="far fa-trash-alt"></i></span>
+                      <input class="customunit" name="customunit" type="text" placeholder="Units">
+                      <span class="optionalbtn" onclick="deleteCustomItem(this);"><i class="far fa-trash-alt"></i></span>
                     </div>
                 </div>
             </form>
+            <div>
+                  <div class="col-sm-12" style="text-align: center; padding-top: 10px;">
+                    <span class="newbtn" onclick="addCustomItem(this);"><i class="fas fa-plus-circle"></i></span>
+                  </div>
+                </div>
             
             </div>
             
@@ -126,7 +124,6 @@
               </p>
         </div>
 
-        </div>
 
     </body>
 </html>

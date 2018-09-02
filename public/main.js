@@ -1,175 +1,928 @@
 'use strict'
 
+/////////////////////////////////////////////// 8/29 everything is working as far as I can tell, need to test more ////////
+
+
 //Canvas Parameters
 let canvas = document.getElementsByTagName('canvas')[0];
 let cWidth = canvas.width;
 let cHeight = canvas.height;
 
 
-function setEventHandler() {
-
-    let table = document.getElementById('inputForm');
-    let inputs = table.getElementsByTagName('input' || 'select');
-    
-    for (let input of inputs) {
-        input.onchange = setNewValue;
-    };
-}
-
-function setNewValue(event) {
-    // You can use “this” to refer to the selected element.
-    for (let key in canvasValues) {
-        if ( key == event.target.name) {
-            canvasValues[key] = event.target.value;
-        } 
-    };
-    redraw();   
-};
+//Disclosure Supplement Globals
+let dvActive = false;
+let noDvActive = false;
 
 
 //Canvas Input Object
 
- let canvasValues = {
+// [inputvalue, units, dailyvalue, title,[font, indent]]
 
-    servingPerCont : '8',
-    servingSize : '2/3',
-    servingSizeUnit : 'cups',
-    servingSizeCalc : '100',
-    servingSizeCalcUnit : 'g',
-    cal : '230',
-    totalFat : '8',
-    satFat : '1',
-    transFat : '0',
-    polyFat : '0',
-    monoFat : '0',
-    cholest : '0',
-    sodium : '160',
-    totalCarbs : '37',
-    fiber : '4',
-    sugar : '12',
-    addSugar : '10',
-    protein : '3',
-    vitD : '2',
-    calcium : '260',
-    iron : '8',
-    pota : '235',
-    vitA : '900',
-    vitC : '90',
-    vitE : '15',
-    vitK : '120',
-    thiamin : '1.2',
-    riboflavin : '1.3',
-    niacin : '16',
-    vitB6 : '1.7',
-    folate : '400',
-    vitB12 : '2.4',
-    biotin : '30',
-    pantoAcid : '5',
-    phosph : '1250',
-    iodine : '150',
-    magnesium : '420',
-    zinc : '11',
-    selenium : '55',
-    copper : '0.9',
-    manganese : "2.3",
-    chromium : "35",
-    molybd : "45",
-    chloride : "2300",
-    choline : "550",
+let canvasValues = {
+
+    servingPerCont : { 
+
+        supActive: true,
+        active: true,
+        value: 8,
+        font: '300 9pt Helvetica',
+        label: 'Servings Per Container',
+
+    },
+
+    servingSize: {
+
+        supActive: true,
+        active: true,
+        value: '2/3',
+        font: '900 11pt Helvetica',
+        label: 'Serving Size Quantity',
+        type: "text"
+
+    },
+
+    servingSizeUnit : {
+
+        supActive: false,
+        active: true,
+        value: 'cups',
+        font: '900 11pt Helvetica',
+        label: 'Serving Size Unit',
+        type: "text"
+
+    },
+
+    servingSizeCalc: {
+
+        supActive: false,
+        active: true,
+        value: 100,
+        units: 'g',
+        font: '900 11pt Helvetica',
+        label: 'Serving Size Quantity',
+
+    },
+
+    cal: {
+
+        supActive: false,
+        active: true,
+        value: 230,
+        font: '900 18pt Helvetica',
+        label: 'Calories',
+        units: 'none',
+
+    },
+
+    calFat: {
+
+        supActive: false,
+        suponly: true,
+        active: false,
+        value: 200,
+        font: '900 9pt Helvetica',
+        label: 'Calories From Saturated Fat',
+        indent: '0',
+        units: 'none',
+
+    },
+
+    totalFat : {
+
+        supActive: false,
+        active: true,
+        value: 8,
+        label: 'Total Fat',
+        units: 'g',
+        font: '900 9pt Helvetica',
+        indent: '0',
+        dv: 78,     
+
+    },
+
+    satFat : {
+
+        supActive: false,
+        active: true,
+        value: 1,
+        label: 'Saturated Fat',
+        units: 'g',
+        font: '300 9pt Helvetica',
+        indent: '1',
+        dv: 20,      
+
+    },
+
+    transFat : {
+
+        supActive: false,
+        active: true,
+        value: 0,
+        formLabel: 'Trans Fat',
+        label: 'Trans Fat',
+        units: 'g',
+        font: '300 9pt Helvetica',
+        indent: '1',      
+
+    },
+
+    polyFat : {
+
+        supActive: false,
+        active: false,
+        value: 0,
+        label: 'Polysaturated Fat',
+        units: 'g',
+        font: '300 9pt Helvetica',
+        indent: '1',      
+
+    },
+
+    monoFat : {
+
+        supActive: false,
+        active: false,
+        value: 0,
+        label: 'Monosaturated Fat',
+        units: 'g',
+        font: '300 9pt Helvetica',
+        indent: '1',      
+
+    },
+
+    cholest : {
+
+        supActive: false,
+        active: true,
+        value: 0,
+        label: 'Cholesterol',
+        units: 'mg',
+        font: '900 9pt Helvetica',
+        indent: '0',
+        dv: 300,      
+
+    },
+
+    sodium : {
+
+        supActive: false,
+        active: true,
+        value: 160,
+        label: 'Sodium',
+        units: 'mg',
+        font: '900 9pt Helvetica',
+        indent: '0',
+        dv: 2300,      
+
+    },
+
+    totalCarbs : {
+
+        supActive: false,
+        active: true,
+        value: 37,
+        label: 'Total Carbohydrates',
+        units: 'g',
+        font: '900 9pt Helvetica',
+        indent: '0',
+        dv: 275,      
+
+    },
+
+    fiber: {
+
+        supActive: false,
+        active: true,
+        value: 4,
+        label: 'Dietary Fiber',
+        units: 'g',
+        font: '300 9pt Helvetica',
+        indent: '1',
+        dv: 28,      
+
+    },
+
+    sugar: {
+
+        supActive: false,
+        active: true,
+        value: 12,
+        label: 'Total Sugars',
+        units: 'g',
+        font: '300 9pt Helvetica',
+        indent: '1',     
+
+    },
+
+    addSugar: {
+
+        supActive: false,
+        active: true,
+        value: 10,
+        formLabel: 'Total Added Sugars',
+        otherNames : [
+
+            'ADDED SUGARS',
+            'ADDED SUGAR',
+
+        ],
+
+        label: 'Includes Added Sugars',
+        units: 'g',
+        font: '300 9pt Helvetica',
+        indent: '2', 
+        dv: 50,    
+
+    },
+
+    sugarAlc: {
+
+        supActive: false,
+        active: false,
+        value: 5,
+        formLabel: 'Sugar Alcohol',
+        label: 'Sugar Alcohol',
+        units: 'g',
+        font: '300 9pt Helvetica',
+        indent: '1',    
+
+    },
+
+    protein: {
+
+        supActive: false,
+        active: true,
+        value: 3,
+        label: 'Protein',
+        units: 'g',
+        font: '300 9pt Helvetica',
+        postfont: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 50,    
+
+    },
+
+
+    vitD : {
+
+        supActive: false,
+        active: true,
+        value: 2,
+        label: 'Vitamin D',
+        units: 'mcg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 20, 
+        break: 7,
+
+    },
+
+    calcium : {
+
+        supActive: false,
+        active: true,
+        value: 260,
+        label: 'Calcium',
+        units: 'mg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 1300, 
+
+    },
+
+    iron : {
+
+        supActive: false,
+        active: true,
+        value: 8,
+        label: 'Iron',
+        units: 'mg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 18, 
+
+    },
+
+    pota : {
+
+        supActive: false,
+        active: true,
+        value: 235,
+        label: 'Potassium',
+        units: 'mg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 4700, 
+
+    },
+
+    vitA : {
+
+        supActive: false,
+        active: false,
+        value: 900,
+        label: 'Vitamin A',
+        units: 'mcg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 900,
+        section: 'add',
+
+    },
+
+    vitC : {
+
+        supActive: false,
+        active: false,
+        value: 90,
+        label: 'Vitamin C',
+        otherNames : [
+
+            'Vitamin C (ascorbic acid)',
+
+        ],
+        units: 'mg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 90,
+        section: 'add', 
+
+    },
+
+    vitE : {
+
+        supActive: false,
+        active: false,
+        value: 15,
+        label: 'Vitamin E',
+        units: 'mcg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 15,
+        section: 'add', 
+
+    },
+
+    vitK : {
+
+        supActive: false,
+        active: false,
+        value: 120,
+        label: 'Vitamin K',
+        units: 'mcg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 120,
+        section: 'add', 
+
+    },
+
+    thiamin : {
+
+        supActive: false,
+        active: false,
+        value: 1.2,
+        label: 'Thiamin',
+        otherNames : [
+
+            'Thiamin (vitamin B1)',
+
+        ],
+        units: 'mg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 1.2,
+        section: 'add', 
+
+    },
+
+    riboflavin : {
+
+        supActive: false,
+        active: false,
+        value: 1.3,
+        label: 'Riboflavin',
+        otherNames : [
+
+            'Riboflavin (vitamin B2)',
+
+        ],
+        units: 'mg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 1.3,
+        section: 'add', 
+
+    },
+
+    niacin : {
+
+        supActive: false,
+        active: false,
+        value: 16,
+        label: 'Niacin',
+        units: 'mg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 16,
+        section: 'add', 
+
+    },
+
+    vitB6 : {
+
+        supActive: false,
+        active: false,
+        value: 1.7,
+        label: 'Vitamin B6',
+        units: 'mg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 1.7,
+        section: 'add', 
+
+    },
+
+    folate : {
+
+        supActive: false,
+        active: false,
+        value: 400,
+        label: 'Folate',
+        units: 'mcg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 400,
+        section: 'add', 
+
+    },
+
+    vitB12 : {
+
+        supActive: false,
+        active: false,
+        value: 2.4,
+        label: 'Vitamin B12',
+        units: 'mcg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 2.4,
+        section: 'add', 
+
+    },
+
+    biotin : {
+
+        supActive: false,
+        active: false,
+        value: 30,
+        label: 'Biotin',
+        units: 'mcg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 30,
+        section: 'add', 
+
+    },
+
+    pantoAcid : {
+
+        supActive: false,
+        active: false,
+        value: 5,
+        label: 'Pantothenic Acid',
+        units: 'mg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 5,
+        section: 'add', 
+
+    },
+
+    choline : {
+
+        supActive: false,
+        active: false,
+        value: 550,
+        label: 'Choline',
+        units: 'mg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 550,
+        section: 'add', 
+
+    },
+
+    phosph : {
+
+        supActive: false,
+        active: false,
+        value: 1250,
+        label: 'Phosphorus',
+        units: 'mg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 1250,
+        section: 'add', 
+
+    },
+
+    iodine : {
+
+        supActive: false,
+        active: false,
+        value: 150,
+        label: 'Iodine',
+        units: 'mcg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 150,
+        section: 'add', 
+
+    },
+
+    magnesium : {
+
+        supActive: false,
+        active: false,
+        value: 420,
+        label: 'Magnesium',
+        units: 'mg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 420,
+        section: 'add', 
+
+    },
+
+    zinc : {
+
+        supActive: false,
+        active: false,
+        value: 11,
+        label: 'Zinc',
+        units: 'mg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 11,
+        section: 'add', 
+
+    },
+
+    selenium : {
+
+        supActive: false,
+        active: false,
+        value: 55,
+        label: 'Selenium',
+        units: 'mcg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 55,
+        section: 'add',
+
+    },
+
+    copper : {
+
+        supActive: false,
+        active: false,
+        value: 0.9,
+        label: 'Copper',
+        units: 'mg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 0.9,
+        section: 'add', 
+
+    },
+
+    manganese : {
+
+        supActive: false,
+        active: false,
+        value: 2.3,
+        label: 'Manganese',
+        units: 'mg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 2.3,
+        section: 'add', 
+
+    },
+
+    chromium : {
+
+        supActive: false,
+        active: false,
+        value: 35,
+        label: 'Chromium',
+        units: 'mg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 35,
+        section: 'add', 
+
+    },
+
+    molybd : {
+
+        supActive: false,
+        active: false,
+        value: 45,
+        label: 'Molybdenum',
+        units: 'mcg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 45,
+        section: 'add', 
+
+    },
+
+    chloride : {
+
+        supActive: false,
+        active: false,
+        value: 2300,
+        label: 'Chloride',
+        units: 'mg',
+        font: '300 9pt Helvetica',
+        indent: '0', 
+        dv: 2300,
+        section: 'add', 
+
+    },
+
+    fluoride : {
+
+        supActive: false,
+        active: false,
+        value: 0,
+        label: 'Fluoride',
+        units: 'mg',
+        font: '300 9pt Helvetica',
+        indent: '0',
+        section: 'add', 
+
+    }
+
+ };
+
+
+function createForm() {
+
+    let form = document.getElementById('inputForm');
+    let standardTemplate = document.getElementById("inputTemplate");
+    let optionalTemplate = document.getElementById("optionalInputTemplate");
+    let canvasKeys = Object.keys(canvasValues);
+    for (let i=0; i < canvasKeys.length ; i++) {
+        
+        let key = canvasKeys[i];
+        let active = canvasValues[key]["active"];
+
+            if (active && canvasValues[key]["suponly"] == null) {
+             createStandardInput(form, key, standardTemplate);
+            } else if (canvasValues[key]["suponly"] == null) {
+                createOptionalInput (form, key, optionalTemplate);
+            }
+    }
+};
+
+
+
+function createStandardInput (form, key, template) {
+
+    let value = canvasValues[key]["value"];
+    let units = canvasValues[key]["units"];
+    let text = canvasValues[key]["label"];
+
+    let newDiv = template.cloneNode(true);
+
+    let label = newDiv.querySelector('label');
+    label.for = key;
+    if (!units) {
+        label.innerText = text;
+    } else {
+        label.innerText = text + ' (' + units + ')';
+    }
+    
+    let input = newDiv.querySelector('input');
+    input.name = key;
+    input.value = value;
+
+    newDiv.classList.remove("hideForm");
+
+    if (canvasValues[key]["break"]) {
+        newDiv.classList.add("formdivider");
+    }
+
+    form.appendChild(newDiv);
+};
+
+function createOptionalInput (form, key, template) {
+
+    let value = canvasValues[key]["value"];
+    let units = canvasValues[key]["units"];
+    let text = canvasValues[key]["label"];
+
+    let newDiv = template.cloneNode(true);
+
+    let label = newDiv.querySelector('label');
+    label.for = key;
+    if (!units) {
+        label.innerText = text;
+    } else {
+        label.innerText = text + ' (' + units + ')';
+    }
+    
+    let input = newDiv.querySelector('input');
+    input.name = key;
+    input.value = value;
+
+    newDiv.classList.remove("hideForm");
+
+    form.appendChild(newDiv);
+};
+
+function createCustomInput (form, template) {
+
+    let newDiv = template.cloneNode(true);
+    newDiv.classList.remove("hideForm");
+    form.appendChild(newDiv);
 
 };
 
-let dailyValue = {
 
-    totalFat : 78,
-    satFat : 20,
-    cholest : 300,
-    totalCarbs : 275,
-    sodium : 2300,
-    fiber : 28,
-    protein : 50,
-    addSugar : 50,
+function setEventHandler() {
 
+    let table = document.getElementById('inputForm');
+    let inputs = table.getElementsByTagName('input' || 'select');
+    let formType = document.getElementById('inputForm').name;
+    if (formType == 'nutrition') {
+        
+        for (let input of inputs) {
+            input.onchange = setNewValue;
+        }
+
+    } else {
+
+        for (let input of inputs) {
+            input.onchange = setNewValueSup;
+        }
+
+    }
+
+}
+
+function setDatalist() {
+
+    let datalist = document.getElementById('dvlist');
+    let list = '';
+    let canvasKeys = Object.keys(canvasValues);
+    for (var i = 4; i < canvasKeys.length; i++) {
+
+        let key = canvasKeys[i];
+
+        if (canvasValues[key]["label"]) {
+
+            let label = canvasValues[key]["label"];
+            list += '<option value="'+label+'" />' 
+        }  
+
+        if (canvasValues[key]["otherNames"]) {
+
+            let othernames = canvasValues[key]["otherNames"];
+
+            for (var j = 0; j < othernames.length; j++) {
+
+                let name = toTitleCase(othernames[j]);
+                list += '<option value="'+name+'" />' 
+
+            }
+        }
+    
+    }
+
+    datalist.innerHTML = list;
+
+}
+
+var toTitleCase = function (str) {
+    str = str.toLowerCase().split(' ');
+    for (var i = 0; i < str.length; i++) {
+        str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+    }
+    return str.join(' ');
 };
 
-let vitDailyValue = {
+function setNewValue(event) {
 
-    vitA : 900,
-    vitC : 90,
-    calcium : 1300,
-    iron : 18,
-    vitD : 20,
-    vitE : 15,
-    vitK : 120,
-    thiamin : 1.2,
-    riboflavin : 1.3,
-    niacin : 16,
-    vitB6 : 1.7,
-    folate : 400,
-    vitB12 : 2.4,
-    biotin : 30,
-    pantoAcid : 5,
-    phosph : 1250,
-    iodine : 150,
-    magnesium : 420,
-    zinc : 11,
-    selenium : 55,
-    copper : 0.9,
-    manganese : 2.3,
-    chromium : 35,
-    molybd : 45,
-    chloride : 2300,
-    pota : 4700,
-    choline : 550,
-
-};
-
-    let vitUnit = {
-
-        vitA : 'mcg',
-        vitC : 'mg',
-        calcium : 'mg',
-        iron : 'mg',
-        vitD : 'mg',
-        vitE : 'mcg',
-        vitK : 'mcg',
-        thiamin : 'mg',
-        riboflavin : 'mg',
-        niacin : 'mg',
-        vitB6 : 'mg',
-        folate : 'mcg',
-        vitB12 : 'mcg',
-        biotin : 'mcg',
-        pantoAcid : 'mg',
-        phosph : 'mg',
-        iodine : 'mcg',
-        magnesium : 'mg',
-        zinc : 'mg',
-        selenium : 'mcg',
-        copper : 'mg',
-        manganese : 'mg',
-        chromium : 'mg',
-        molybd : 'mcg',
-        chloride : 'mg',
-        pota : 'mg',
-        choline : 'mg',
-
+    let canvasKeys = Object.keys(canvasValues);
+    
+    for (let i=0; i < canvasKeys.length ; i++) {
+        let key = canvasKeys[i];
+        if ( key == event.target.name ) {
+            canvasValues[key]["value"] = event.target.value;
+        };
     };
 
-/**
- * This is the function that will take care of image extracting and
- * setting proper filename for the download.
- * IMPORTANT: Call it from within a onclick event.
-*/
+   redraw();   
+};
+
+function setNewValueSup(event) {
+
+    if (event.target.name == "servingPerCont" || event.target.name == "servingSize") {
+
+        let canvasKeys = Object.keys(canvasValues);
+        for (let i=0; i < canvasKeys.length ; i++) {
+            let key = canvasKeys[i];
+            if ( key == event.target.name ) {
+                canvasValues[key]["value"] = event.target.value;
+            };
+        };
+
+    } else {
+
+        let canvasKeys = Object.keys(canvasValues);
+        let inputDiv = event.path[2];
+        let customInputs = inputDiv.querySelectorAll("input");
+        let customTitle = customInputs[0];
+        let customValue = customInputs[1];
+        let customUnits = customInputs[2];
+        let matchFound = false;
+
+        // if title was added/changed search and see if it is has a DVI value
+        for (let i=0; i < canvasKeys.length ; i++) {
+            
+            let key = canvasKeys[i];
+            let othernames = [];
+
+            //check to see if the canvas value has other names defined
+            if (canvasValues[key]["otherNames"]) {
+                
+                othernames = canvasValues[key]["otherNames"];
+
+            } 
+
+            //if input value matches an item with DVI
+            if ( canvasValues[key]["label"].toUpperCase() == customTitle.value.toUpperCase() 
+                || othernames.includes( customTitle.value.toUpperCase() ) ) {
+
+                matchFound = true;
+
+                if (canvasValues[key]["dv"] || canvasValues[key]["units"] == 'none') {
+
+                    customUnits.value = canvasValues[key]["units"];
+
+                } 
+                else {
+
+                    canvasValues[key]["units"] = customUnits.value;
+
+                }
+                canvasValues[key]["supActive"] = true;
+                canvasValues[key]["value"] = customValue.value;
+
+                break;
+            
+            } 
+
+        };
+     
+        if (!matchFound) {
+
+            canvasValues[customTitle.value] = {
+
+                supActive: true,
+                active: false,
+                value: customValue.value,
+                label: customTitle.value,
+                units: customUnits.value,
+                font: '300 9pt Helvetica',
+                indent: '0', 
+                section: 'add', 
+
+            };
+
+        }
+
+    }
+
+   redraw();   
+};
+
+
+function unitAlert(unit) {
+
+    alert("Units must match the FDA established DVI/RDI units in order to calculate percentage: " + unit);
+
+}
+
 function downloadCanvas(link, canvasId, filename) {
     link.href = document.getElementById(canvasId).toDataURL();
     link.download = filename;
 }
 
-/** 
- * The event handler for the link's onclick event. We give THIS as a
- * parameter (=the link element), ID of the canvas and a filename.
-*/
 document.getElementById('download').addEventListener('click', function() {
     ga('send', 'event', {
     eventCategory: 'download',
@@ -179,7 +932,6 @@ document.getElementById('download').addEventListener('click', function() {
     downloadCanvas(this, 'canvas', 'lblmaker_'+ filename + '.png');
 }, false);
 
-//document.getElementsByName('addedName').addEventListener('')
 
 function makeFilename() {
   var text = "";
@@ -189,147 +941,473 @@ function makeFilename() {
     text += possible.charAt(Math.floor(Math.random() * possible.length));
 
   return text;
-}
+};
 
-function calculatePerc(inputAmount, dailyValue) {
-    if (inputAmount != 0) {
-        let inputAmountConv = parseFloat(inputAmount, 10);
-        let percentage = Math.floor( (inputAmountConv / dailyValue) *100 );
-        let percentageString = percentage.toString();
-        return percentageString;
-    } else return "0";
-}
 
-function setCanvasDim() {
 
-    cWidth = 226;
-    cHeight  = 430; //430 default
 
-    let addedNamesMain = document.getElementsByClassName("activemain");
-    let addedLengthMain = addedNamesMain.length;
-    cHeight += addedLengthMain * 17;
+function setCanvasDim(label) {
 
-    let addedNames = document.getElementsByClassName("activeitem");
-    let addedLength = addedNames.length;
-    cHeight += addedLength * 17;
+    if (label == "sup") {
+        
+        cWidth = 240;
+        cHeight  = 127;
+
+        let canvasKeys = Object.keys(canvasValues);
+        for (var i = 4; i < canvasKeys.length; i++) {
+            let key = canvasKeys[i];
+            if (canvasValues[key]["supActive"]) {
+
+                cHeight += 17;
+
+            }
+
+        }
+
+        
+        if (dvActive && noDvActive) { 
+
+            cHeight += 12;
+
+        }
+        
+
+    } else {
+
+        cWidth = 226;
+        cHeight  = 190;
+
+        let canvasKeys = Object.keys(canvasValues);
+        for (var i = 5; i < canvasKeys.length; i++) {
+            let key = canvasKeys[i];
+            if (canvasValues[key]["active"]) {
+
+                cHeight += 17;
+
+            }
+
+        }
+    }
+
+
 
     canvas.style.width = cWidth.toString();
     canvas.style.height = cHeight.toString();
-
 }
 
-///// Optional vitamins and minerals section ///////
-
-
-function showOpt() {
-
-    let optSection = document.getElementById("addsection").removeAttribute("class");
-    let addBtn = document.getElementById("addbtn").setAttribute("class","hideForm");
-
-}
-
-function addItem(elem) {
-
-    let formGroup = elem.closest('.form-group');
-    formGroup.classList.remove("inactiveitem");
-    formGroup.classList.add("activeitem");
-    redraw();
-
-}
-
-function addItemMain(elem) {
-
-    let formGroup = elem.closest('.form-group');
-    formGroup.classList.remove("inactivemain");
-    formGroup.classList.add("activemain");
-    redraw();
-
-}
 
 
 function deleteItem(elem) {
 
     let formGroup = elem.closest('.form-group');
+    let inputDiv = elem.closest('div');
+    let inputName = inputDiv.querySelector('input').name;
+    canvasValues[inputName]["active"] = false;
     formGroup.classList.remove("activeitem");
     formGroup.classList.add("inactiveitem");
     redraw();
 
 };
 
-function deleteItemMain(elem) {
+function deleteCustomItem(elem) {
 
     let formGroup = elem.closest('.form-group');
-    formGroup.classList.remove("activemain");
-    formGroup.classList.add("inactivemain");
+    let inputName = formGroup.querySelector('.customtitle').value;
+    
+    let canvasKeys = Object.keys(canvasValues);
+    
+    for (let i=0; i < canvasKeys.length ; i++) {
+        let key = canvasKeys[i];
+        if ( canvasValues[key]["label"] == inputName) {
+            canvasValues[key]["supActive"] = false;
+            break; 
+        } else if (canvasValues[key]["otherNames"]) {
+            if (canvasValues[key]["otherNames"].includes(inputName.toUpperCase())) {
+
+                canvasValues[key]["supActive"] = false;
+                break; 
+
+            }
+        }
+    };
+
+    formGroup.classList.remove("activeitem");
+    formGroup.classList.add("inactiveitem");
+    formGroup.classList.add("hideForm");
     redraw();
 
 };
 
-function drawAddedMain(ctx, yPos) {
+function addItem(elem) {
 
-    let addedItems = document.querySelectorAll("div.activemain");
+    let formGroup = elem.closest('.form-group');
+    let inputDiv = elem.closest('div');
+    let inputName = inputDiv.querySelector('input').name;
+    canvasValues[inputName]["active"] = true;
+    formGroup.classList.remove("inactiveitem");
+    formGroup.classList.add("activeitem");
+    redraw();
 
-    for (var i = 0; i < addedItems.length; i++) {
-        ctx.textAlign="start";
-        ctx.font='300 9pt Helvetica';
+};
 
-        let addedTitle = addedItems[i].querySelector("label").querySelector("span").innerText;
-        let addedName = addedItems[i].querySelector("input").name;
-        let addedUnit = vitUnit[addedName];
-        let addedValue = addedItems[i].querySelector("input").value;
+function addCustomItem(elem) {
 
-        ctx.fillText(addedTitle + "  " + addedValue + 'g', 20, yPos += 13);
+
+    let form = document.getElementById('inputForm');
+    let customTemplate = document.getElementById("customInputTemplate");
+    let titleInput = customTemplate.querySelector('.customtitle')
+    
+    createCustomInput (form, customTemplate);
+    setEventHandler();
+
+};
+
+
+function drawActive(ctx, yPos) {
+
+    let canvasKeys = Object.keys(canvasValues);
+
+    for (var i = 5; i < canvasKeys.length; i++) {
+
+        let key = canvasKeys[i];
+        let indent = 6;
+
+        if (canvasValues[key]["active"] && canvasValues[key]["suponly"] == null) {
+
+            let item = canvasValues[key];
+
+            if (item["indent"] == 0) {
+
+                indent = 6;
+
+            } else if (item["indent"] == 1) {
+
+                indent = 20;
+
+            } else if (item["indent"] == 2) {
+
+                indent = 35;
+
+            } else {
+
+                let indent = 6;
+                console.log("indent not recognized");
+
+            };
+
+
+            if (item["break"]) {
+
+                let lineWidth = item["break"]
+                ctx.beginPath();
+                ctx.moveTo(indent, yPos += lineWidth + 1);
+                ctx.lineWidth = lineWidth;
+                ctx.lineTo((cWidth - 6), yPos);
+                ctx.stroke();
+                yPos += 3;
+
+            } else {
+
+                ctx.beginPath();
+                ctx.moveTo(indent, yPos += 4);
+                ctx.lineWidth = 1;
+                ctx.lineTo((cWidth - 6), yPos);
+                ctx.stroke();
+
+            }
+
+
+            ctx.textAlign = "start";
+            ctx.font = item["font"];
+
+            if (key == "transFat") {
+
+                ctx.font='300 italic 9pt Helvetica';
+                ctx.fillText('Trans', indent, yPos += 13);
+                ctx.font = item["font"];
+                ctx.fillText('Fat ' + item["value"] + item["units"], 53, yPos);
+
+            } else if (key == "addSugar") {
+
+                ctx.fillText('Includes', indent, yPos += 13);
+                ctx.fillText( item["value"] + 'g Added Sugars', 83, yPos);
+
+            } else {
+
+                ctx.fillText(item["label"] + " " + item["value"] + item["units"], indent, yPos += 13);               
+
+            }
+
+
+            //percentage
+            if (item["dv"]) {
+
+                let calPerc = calculatePerc(item["value"],item["dv"]);
+
+                if (item["section"] == "add") {
+
+                    ctx.textAlign="right";
+                    ctx.font='300 9pt Helvetica';
+                    ctx.fillText( calPerc , (cWidth - 6), yPos);
+
+                } else {
+
+                    ctx.textAlign="right";
+                    ctx.font='900 9pt Helvetica';
+                    ctx.fillText( calPerc , (cWidth - 6), yPos);
+
+                }
+            }
+        }
+    }
+    
+    return yPos;
+
+}
+
+function drawSupActive(ctx, yPos) {
+
+    let canvasKeys = Object.keys(canvasValues);
+
+    for (var i = 4; i < canvasKeys.length; i++) {
+
+        let key = canvasKeys[i];
+        let indent = 6;
+
+        if (canvasValues[key]["supActive"]) {
+
+            let item = canvasValues[key];
+
+            if (item["indent"] == 0) {
+
+                indent = 6;
+
+            } else if (item["indent"] == 1) {
+
+                indent = 20;
+
+            } else if (item["indent"] == 2) {
+
+                indent = 35;
+
+            } else {
+
+                let indent = 6;
+                console.log("indent not recognized");
+
+            };
+
+
+        if (item["break"]) {
+
+                let lineWidth = item["break"]
+                ctx.beginPath();
+                ctx.moveTo(indent, yPos += lineWidth + 1);
+                ctx.lineWidth = lineWidth;
+                ctx.lineTo((cWidth - 6), yPos);
+                ctx.stroke();
+                yPos += 3;
+
+            } else {
+
+                ctx.beginPath();
+                ctx.moveTo(indent, yPos += 4);
+                ctx.lineWidth = 1;
+                ctx.lineTo((cWidth - 6), yPos);
+                ctx.stroke();
+
+        }
+
+
+        ctx.textAlign = "start";
+        ctx.font = '300 9pt Helvetica';
+        console.log(canvasValues[key].units);
+
+        if (key == "transFat") {
+
+                ctx.font='300 italic 9pt Helvetica';
+                ctx.fillText('Trans', indent, yPos += 13);
+                ctx.font = '300 9pt Helvetica';
+                ctx.fillText('Fat ' + item["value"] + item["units"], 53, yPos);
+
+        } else if (key == "addSugar") {
+
+                ctx.fillText('Includes', indent, yPos += 13);
+                ctx.fillText( item["value"] + 'g Added Sugars', 83, yPos);
+
+        } else if ( item["units"] == 'none') {
+
+                ctx.fillText(item["label"] + " " + item["value"], indent, yPos += 13);
+                console.log(item["units"]);
+
+        } else {
+
+                ctx.fillText(item["label"] + " " + item["value"] + item["units"], indent, yPos += 13);               
+
+            }
+
+
+            //percentage
+            if (item["dv"]) {
+
+                let calPerc = calculatePerc(item["value"],item["dv"]);
+                dvActive = true;
+
+                if (item["section"] == "add") {
+
+                    ctx.textAlign="right";
+                    ctx.font='300 9pt Helvetica';
+                    ctx.fillText( calPerc , (cWidth - 6), yPos);
+
+                } else {
+
+                    ctx.textAlign="right";
+                    ctx.font='300 9pt Helvetica';
+                    ctx.fillText( calPerc , (cWidth - 6), yPos);
+
+                }
+
+            } else if ( key == 'cal' || key == 'calFat' ) {
+
+                ctx.textAlign="right";
+                ctx.font='300 9pt Helvetica';
+                ctx.fillText( " " , (cWidth - 6), yPos);
+
+            }
+
+            else {
+
+                noDvActive = true;
+
+                ctx.textAlign="right";
+                ctx.font='300 10pt Helvetica';
+                ctx.fillText( '\u271D' , (cWidth - 6), yPos);
+
+            }
+        }
+    }
+    
+    return yPos;
+
+}
+
+
+function calculatePerc(inputAmount, dailyValue) {
+
+    let formType = document.getElementById('inputForm').name;
+    if (formType == 'supplement') {
+
+        let inputAmountConv = parseFloat(inputAmount, 10);
+        let percentage = (inputAmountConv / dailyValue) * 100;
+        let percentageRound = Math.ceil(percentage);
+        let percentageString = percentageRound.toString();
         
+        if (isNaN(percentageString)) {
+            return( "0%*");
+        } else if ( percentage <= .5) {
+            return("<1%*");
+        } else {
+            return(percentageString + "%*");
+        }
+
+    } else {
+
+        let inputAmountConv = parseFloat(inputAmount, 10);
+        let percentage = Math.floor( (inputAmountConv / dailyValue) * 100 );
+        let percentageString = percentage.toString();
+        if (isNaN(percentageString)) {
+            return( "0%");
+        } else {
+            return(percentageString + "%");
+        }
+
+    }
+}
+
+
+
+function drawSup() {
+    
+    if (canvas.getContext) {
+
+        let ctx = canvas.getContext('2d');
+        setCanvasDim("sup");
+        ctx.canvas.width  = cWidth;
+        ctx.canvas.height = cHeight;
+
+        let yPos = 0;
+        
+        //Outside Border
+        ctx.lineWidth = 2;
+        ctx.strokeRect(0, 0, cWidth, cHeight);
+        
+        //Supplement Fact Heading
+        ctx.textAlign="start";
+        ctx.font='800 19.8pt Helvetica';
+        ctx.fillText('Supplement Facts', 6, yPos += 29);
+        
+        //Servings Size 
+        ctx.font='300 9pt Helvetica';
+        ctx.fillText('Serving size' + " " + canvasValues["servingSize"]["value"], 6, yPos += 19);
+
+        //Servings Per Container
+        ctx.font='300 9pt Helvetica';
+        ctx.fillText('Servings Per Container' + " " + canvasValues["servingPerCont"]["value"], 6, yPos += 13);
+             
+        //7 pt seperator line
         ctx.beginPath();
-        ctx.moveTo(6, yPos += 4);
-        ctx.lineWidth = 1;
+        ctx.moveTo(6, yPos += 10); 
+        ctx.lineWidth = 7;
         ctx.lineTo((cWidth - 6), yPos);
         ctx.stroke();
-    }
-    return yPos;
-}
-
-function drawAdded(ctx, yPos) {
-
-    let addedItems = document.querySelectorAll("div.activeitem");
-
-    for (var i = 0; i < addedItems.length; i++) {
-        ctx.textAlign="start";
-        ctx.font='300 9pt Helvetica';
-        let addedTitle = addedItems[i].querySelector("label").querySelector("span").innerText;
-        let addedName = addedItems[i].querySelector("input").name;
-        let addedUnit = vitUnit[addedName];
-        let addedValue = addedItems[i].querySelector("input").value;
-
-        ctx.fillText(addedTitle + "  " + addedValue + addedUnit, 6, yPos += 13);
         
-        ctx.textAlign="right";    
-        ctx.fillText( calculatePerc(addedValue , vitDailyValue[addedName])  + '%', (cWidth - 6), yPos);
-        if (i == (addedItems.length-1)) {
-            ctx.beginPath();
-            ctx.moveTo(6, yPos += 6);
-            ctx.lineWidth = 3;
-            ctx.lineTo((cWidth - 6), yPos);
-            ctx.stroke();
-        } else {
-            ctx.beginPath();
-            ctx.moveTo(6, yPos += 4);
-            ctx.lineWidth = 1;
-            ctx.lineTo((cWidth - 6), yPos);
-            ctx.stroke();
-        };
+        //Amount Per Serving Title
+        ctx.textAlign="left"; 
+        ctx.font='900 8pt Helvetica';
+        ctx.fillText('Amount per serving', 6, yPos += 18); 
+        
+        
+        //% Daily Value
+        ctx.textAlign="center"; 
+        ctx.font='900 8pt Helvetica';
+        ctx.fillText('% Daily Value', (cWidth - 41), yPos); 
+        
+        //3 pt seperator line
+        ctx.beginPath();
+        ctx.moveTo(6, yPos += 6);
+        ctx.lineWidth = 3;
+        ctx.lineTo((cWidth - 6), yPos);
+        ctx.stroke();
+        
+        //Additional
+        yPos -= 2;
+        let lastypos = drawSupActive(ctx, yPos);
+
+        //7 pt seperator line
+        ctx.beginPath();
+        ctx.moveTo(6, lastypos += 10); 
+        ctx.lineWidth = 7;
+        ctx.lineTo((cWidth - 6), lastypos);
+        ctx.stroke();
+
+        //Disclosure Section 
+        ctx.textAlign="start";
+        ctx.font='300 6.2pt Helvetica';
+
+        if (dvActive) {
+
+            ctx.fillText('* Percent Daily Values are based on a 2,000 calorie diet', 6, lastypos += 15);
+
+        }
+
+        if (noDvActive) {
+
+            ctx.fillText('\u271D Daily Value (DV) not established', 6, lastypos += 13);            
+
+        }
     }
-    return yPos;
 }
 
-
-function redraw() {
-    console.log("redrawing");
-    let canvas = document.getElementById('canvas');
-    canvas.width = canvas.width
-    setEventHandler();
-    draw();
-}
 
 
 function draw() {
@@ -337,7 +1415,7 @@ function draw() {
     if (canvas.getContext) {
 
         let ctx = canvas.getContext('2d');
-        setCanvasDim();
+        setCanvasDim("nutri");
         ctx.canvas.width  = cWidth;
         ctx.canvas.height = cHeight;
 
@@ -360,20 +1438,20 @@ function draw() {
         
         //Servings per container
         ctx.font='300 10pt Helvetica';
-        ctx.fillText(canvasValues.servingPerCont + ' Servings per container', 6, yPos += 14); //48
+        ctx.fillText(canvasValues["servingPerCont"]["value"] + ' Servings per container', 6, yPos += 14);
         
         //Servings Size title
         ctx.font='900 11pt Helvetica';
-        ctx.fillText('Serving size', 6, yPos += 16); //64        
+        ctx.fillText('Serving size', 6, yPos += 16);       
         ctx.font='900 11pt Helvetica';
         ctx.textAlign="right"; 
-        ctx.fillText(canvasValues.servingSize + ' ' + canvasValues.servingSizeUnit + 
-            ' (' + canvasValues.servingSizeCalc + canvasValues.servingSizeCalcUnit + ')'
+        ctx.fillText(canvasValues["servingSize"]["value"] + ' ' + canvasValues["servingSizeUnit"]["value"] + 
+            ' (' + canvasValues["servingSizeCalc"]["value"] + 'g)'
             , (cWidth - 6), yPos);
         
         //7 pt seperator line
         ctx.beginPath();
-        ctx.moveTo(6, yPos += 10); //74
+        ctx.moveTo(6, yPos += 10); 
         ctx.lineWidth = 7;
         ctx.lineTo((cWidth - 6), yPos);
         ctx.stroke();
@@ -381,235 +1459,38 @@ function draw() {
         //Amount Per Serving Title
         ctx.textAlign="start"; 
         ctx.font='900 8pt Helvetica';
-        ctx.fillText('Amount per serving', 6, yPos += 17); //91
+        ctx.fillText('Amount per serving', 6, yPos += 17); 
         
         //Calories Title
         ctx.font='900 18pt Helvetica';
-        ctx.fillText('Calories', 6, yPos += 21); //112
+        ctx.fillText('Calories', 6, yPos += 21);
         
         //Calories Value
         ctx.textAlign="right";
         ctx.font='900 25pt Helvetica';
-        ctx.fillText(canvasValues.cal, (cWidth - 6), yPos);
+        ctx.fillText(canvasValues["cal"]["value"], (cWidth - 6), yPos);
         
         //4 pt seperator line
         ctx.beginPath();
-        ctx.moveTo(6, yPos += 8); //120
+        ctx.moveTo(6, yPos += 8); 
         ctx.lineWidth = 4;
         ctx.lineTo((cWidth - 6), yPos); 
         ctx.stroke();
         
         //% Daily Value
         ctx.font='900 8pt Helvetica';
-        ctx.fillText('% Daily Value*', (cWidth - 6), yPos += 15); //135
-        
+        ctx.fillText('% Daily Value*', (cWidth - 6), yPos += 15);
+
+        let lastypos = drawActive(ctx, yPos);
+
+
         //1/4 pt seperator line
         ctx.beginPath();
-        ctx.moveTo(6, yPos += 5); //140
+        ctx.moveTo(6, lastypos += 5);
         ctx.lineWidth = 1;
-        ctx.lineTo((cWidth - 6), yPos);
-        ctx.stroke();
-        
-        //Total Fat
-        ctx.textAlign="start"; 
-        ctx.font='900 9pt Helvetica';
-        ctx.fillText('Total Fat ', 6, yPos += 12); //152
-        ctx.font='300 9pt Helvetica';
-        ctx.fillText(canvasValues.totalFat + 'g', 62, yPos);
-        ctx.textAlign="right";
-        ctx.font='900 9pt Helvetica';
-        ctx.fillText( calculatePerc(canvasValues.totalFat , dailyValue.totalFat)  + '%', (cWidth - 6), yPos);
-        ctx.beginPath();
-        ctx.moveTo(6, yPos += 4); //156
-        ctx.lineWidth = 1;
-        ctx.lineTo((cWidth - 6), yPos);
-        ctx.stroke();
-        
-        //Sat Fat
-        ctx.textAlign="start"; 
-        ctx.font='300 9pt Helvetica';
-        ctx.fillText('Saturated Fat ' + canvasValues.satFat + 'g', 20, yPos += 13); //169
-        ctx.textAlign="right";
-        ctx.font='900 9pt Helvetica';
-        ctx.fillText( calculatePerc(canvasValues.satFat , dailyValue.satFat) + '%', (cWidth - 6), yPos);
-        ctx.beginPath();
-        ctx.moveTo(6, yPos += 4); //173
-        ctx.lineWidth = 1;
-        ctx.lineTo((cWidth - 6), yPos);
-        ctx.stroke();
-        
-        //Trans Fat
-        ctx.textAlign="start"; 
-        ctx.font='300 italic 9pt Helvetica';
-        ctx.fillText('Trans', 20, yPos += 13); //186
-        ctx.font='300 9pt Helvetica';
-        ctx.fillText('Fat  ' + canvasValues.transFat+ 'g', 53, yPos);
-        ctx.beginPath();
-        ctx.moveTo(6, yPos += 4); //190
-        ctx.lineWidth = 1;
-        ctx.lineTo((cWidth - 6), yPos);
+        ctx.lineTo((cWidth - 6), lastypos);
         ctx.stroke();
 
-        //Additional Fats
-        yPos = drawAddedMain(ctx, yPos);
-
-        //Cholesterol
-        ctx.font='900 9pt Helvetica';
-        ctx.fillText('Cholesterol ', 6, yPos += 13); //203
-        ctx.font='300 9pt Helvetica';
-        ctx.fillText(canvasValues.cholest + 'mg', 78, yPos);
-        ctx.textAlign="right";
-        ctx.font='900 9pt Helvetica';
-        ctx.fillText( calculatePerc(canvasValues.cholest , dailyValue.cholest) + '%', (cWidth - 6), yPos);
-        ctx.beginPath();
-        ctx.moveTo(6, yPos += 4); //207
-        ctx.lineWidth = 1;
-        ctx.lineTo((cWidth - 6), yPos);
-        ctx.stroke();
-        
-        //Sodium
-        ctx.textAlign="start"; 
-        ctx.font='900 9pt Helvetica';
-        ctx.fillText('Sodium', 6, yPos += 13); //220
-        ctx.font='300 9pt Helvetica';
-        ctx.fillText(canvasValues.sodium + 'mg', 53, yPos);
-        ctx.textAlign="right";
-        ctx.font='900 9pt Helvetica';
-        ctx.fillText( calculatePerc(canvasValues.sodium , dailyValue.sodium) + '%', (cWidth - 6), yPos);
-        ctx.beginPath();
-        ctx.moveTo(6, yPos += 4); //224
-        ctx.lineWidth = 1;
-        ctx.lineTo((cWidth - 6), yPos);
-        ctx.stroke();
-        
-        //Total Carbs
-        ctx.textAlign="start"; 
-        ctx.font='900 9pt Helvetica';
-        ctx.fillText('Total Carbohydrate', 6, yPos += 13); //237
-        ctx.font='300 9pt Helvetica';
-        ctx.fillText(canvasValues.totalCarbs + 'g', 120, yPos);
-        ctx.textAlign="right";
-        ctx.font='900 9pt Helvetica';
-        ctx.fillText( calculatePerc(canvasValues.totalCarbs , dailyValue.totalCarbs) + '%', (cWidth - 6), yPos);
-        ctx.beginPath();
-        ctx.moveTo(6, yPos += 4); //241
-        ctx.lineWidth = 1;
-        ctx.lineTo((cWidth - 6), yPos);
-        ctx.stroke();
-        
-        //Total Fiber
-        ctx.textAlign="start";
-        ctx.font='300 9pt Helvetica';
-        ctx.fillText('Dietary Fiber  '+ canvasValues.fiber + 'g', 20, yPos += 13); //254
-        ctx.textAlign="right";
-        ctx.font='900 9pt Helvetica';
-        ctx.fillText( calculatePerc(canvasValues.fiber , dailyValue.fiber)+ '%', (cWidth - 6), yPos);
-        ctx.beginPath();
-        ctx.moveTo(6, yPos += 4); //258
-        ctx.lineWidth = 1;
-        ctx.lineTo((cWidth - 6), yPos);
-        ctx.stroke();
-        
-        //Total Sugars
-        ctx.textAlign="start";
-        ctx.font='300 9pt Helvetica';
-        ctx.fillText('Total Sugars  ' + canvasValues.sugar + 'g', 20, yPos += 13); //271
-        ctx.beginPath();
-        ctx.moveTo(35, yPos += 4); //275
-        ctx.lineWidth = 1;
-        ctx.lineTo((cWidth - 6), yPos);
-        ctx.stroke();
-        
-        //Included Sugars
-        ctx.font='300 9pt Helvetica';
-        ctx.fillText('Includes', 35, yPos += 13); //288
-        ctx.fillText( canvasValues.addSugar + 'g Added Sugars', 83, yPos);
-        ctx.textAlign="right";
-        ctx.font='900 9pt Helvetica';
-        ctx.fillText( calculatePerc(canvasValues.addSugar, dailyValue.addSugar) + '%', (cWidth - 6), yPos);
-        ctx.beginPath();
-        ctx.moveTo(6, yPos += 4); //291
-        ctx.lineWidth = 1;
-        ctx.lineTo((cWidth - 6), yPos);
-        ctx.stroke();
-        
-        //Protein
-        ctx.textAlign="start";
-        ctx.font='900 9pt Helvetica';
-        ctx.fillText('Protein', 6, yPos += 13); //304
-        ctx.font='300 9pt Helvetica';
-        ctx.fillText(canvasValues.protein + 'g', 51, yPos);
-        
-        //7 pt seperator line
-        ctx.beginPath();
-        ctx.moveTo(6, yPos += 8); //312
-        ctx.lineWidth = 7;
-        ctx.lineTo((cWidth - 6), yPos);
-        ctx.stroke();
-        
-        
-        ////Vitamin section//////
-        //Vitamin D
-        ctx.textAlign="start";
-        ctx.font='300 9pt Helvetica';
-        ctx.fillText('Vitamin D  ' + canvasValues.vitD + 'mcg', 6, yPos += 17); //329
-        ctx.textAlign="right";
-        ctx.fillText( calculatePerc(canvasValues.vitD, vitDailyValue.vitD)  + '%', (cWidth - 6), yPos);
-        ctx.beginPath();
-        ctx.moveTo(6, yPos += 4); //333
-        ctx.lineWidth = 1;
-        ctx.lineTo((cWidth - 6), yPos);
-        ctx.stroke();
-        
-        //Calcium
-        ctx.textAlign="start";
-        ctx.font='300 9pt Helvetica';
-        ctx.fillText('Calcium  ' + canvasValues.calcium + 'mg', 6, yPos += 13); //346
-        ctx.textAlign="right";
-        ctx.fillText( calculatePerc(canvasValues.calcium, vitDailyValue.calcium)+ '%', (cWidth - 6), yPos);
-        ctx.beginPath();
-        ctx.moveTo(6, yPos += 4); //350
-        ctx.lineWidth = 1;
-        ctx.lineTo((cWidth - 6), yPos);
-        ctx.stroke();
-    
-        //Iron
-        ctx.textAlign="start";
-        ctx.font='300 9pt Helvetica';
-        ctx.fillText('Iron  ' + canvasValues.iron + 'mg', 6, yPos += 13); //363
-        ctx.textAlign="right";
-        ctx.fillText( calculatePerc(canvasValues.iron, vitDailyValue.iron) + '%', (cWidth - 6), yPos);
-        ctx.beginPath();
-        ctx.moveTo(6, yPos += 4); //367
-        ctx.lineWidth = 1;
-        ctx.lineTo((cWidth - 6), yPos);
-        ctx.stroke();
-        
-        //Potassium
-        ctx.textAlign="start";
-        ctx.font='300 9pt Helvetica';
-        ctx.fillText('Potassium  ' + canvasValues.pota + 'mg', 6, yPos += 13); //380
-        ctx.textAlign="right";
-        ctx.fillText( calculatePerc(canvasValues.pota, vitDailyValue.pota) + '%', (cWidth - 6), yPos);
-        
-        let addedItems = document.querySelectorAll("div.activeitem");
-        if (addedItems === undefined || addedItems.length == 0) {
-            ctx.beginPath();
-            ctx.moveTo(6, yPos += 6); 
-            ctx.lineWidth = 4;
-            ctx.lineTo((cWidth - 6), yPos);
-            ctx.stroke();
-        } else {
-            ctx.beginPath();
-            ctx.moveTo(6, yPos += 4); 
-            ctx.lineWidth = 1;
-            ctx.lineTo((cWidth - 6), yPos);
-            ctx.stroke();
-        }
-
-        //Additional vitamins
-        let lastypos = drawAdded(ctx, yPos);
-        
         //Disclosure Section   eventually build out with wrap function
         ctx.textAlign="start";
         ctx.font='300 6.2pt Helvetica';
@@ -620,5 +1501,35 @@ function draw() {
         }
 }
 
-setEventHandler();
-draw();
+function redraw() {
+    console.log("redrawing");
+    let canvas = document.getElementById('canvas');
+    canvas.width = canvas.width
+    let formType = document.getElementById('inputForm').name;
+    if (formType == 'nutrition') {
+        draw();
+    } else if (formType == 'supplement') {
+        drawSup();
+    } else {
+        console.log("unknown form");
+    }
+}
+
+// setEventHandler();
+function initiate() {
+    let formType = document.getElementById('inputForm').name;
+    if (formType == 'nutrition') {
+        createForm();
+        setEventHandler();
+        draw();
+    } else if (formType == 'supplement') {
+        canvasValues["servingSize"]["value"] = "1 packet";
+        setDatalist();
+        setEventHandler();
+        drawSup();
+    } else {
+        console.log("unknown form");
+    }
+}
+
+initiate();

@@ -14,6 +14,10 @@ app.get("/", function(req, res){
     res.sendFile('views/landing.html' , { root : __dirname});
   });
 
+app.get("/supplement", function(req, res){
+    res.sendFile('views/supplement.html' , { root : __dirname});
+  });
+
 /*
 app.get("/main.js", function(req, res){
     res.sendfile("views/main.js");  
