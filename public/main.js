@@ -924,10 +924,10 @@ function downloadCanvas(link, canvasId, filename) {
 }
 
 document.getElementById('download').addEventListener('click', function() {
-    ga('send', 'event', {
-    eventCategory: 'download',
-    eventAction: 'click',
-    });
+    
+    //google event tracking
+    gtag('event', 'download');
+
     let filename = makeFilename();
     downloadCanvas(this, 'canvas', 'lblmaker_'+ filename + '.png');
 }, false);
