@@ -4,12 +4,15 @@
         <meta charset = "UTF-8">
         <title>lbl maker - nutrition label</title>
         <link rel="stylesheet" type="text/css" href="css/styles.css" >
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.2/awesomplete.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.2/awesomplete.js" async></script>
+        <script
+          src="https://code.jquery.com/jquery-3.3.1.slim.js"
+          integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
+          crossorigin="anonymous"></script>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,900" rel="stylesheet">
+          
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66064500-4"></script>
         <script>
@@ -19,43 +22,38 @@
           gtag('config', 'UA-66064500-4');
         </script>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        
-        <script type="text/javascript" src="/main.js" async></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-
         <link rel="shortcut icon" type="image/png" href="images/lblfav.png"/>
-
-
+        <script type="text/javascript" src="/main.js" async></script>
         
     </head>
    
     <body>
-        <nav class="subnav">
-             <span class="navbutton">
-               <a href="./">NUTRITION LABEL</a> 
-             </span>
-             <span class="navbutton">
-                <a href="mailto:lblmaker1@gmail.com?Subject=Feedback%Supplement%20Label" target="_top">FEEDBACK</a> 
-             </span>
-              <span class="navbutton">
-                <a href="">LEARN MORE</a> 
-             </span>
-        </nav>
 
-        <nav class="navbar navbar-expand-lg">
-          <div class="mx-auto ">
-               <a class="navbar-brand mx-auto" href="./">
-                <img src="images/lbl_logo_4.png" width="70" height="70" alt="">
-              </a>
-          </div>
-        </nav>
-
-      <div class = "mainContainer">
-        
-        <div class="notice">
-
+      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: black;">
+         <a class="navbar-brand" href="./">
+          <img src="images/lbl_logo_5.png" width="70" height="70" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="./">Nutrition Label</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="mailto:lblmaker1@gmail.com?Subject=Feedback%20Nutrition%20Label"">Leave Feedback</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="">Learn More</a>
+            </li>
+          </ul>
         </div>
+      </nav>
+
+      <div class = "mainContainer nonotice">
+        
         <div class="row">    
           <div class="col-sm-8" id = "formSection">
             <form name="supplement" id = "inputForm" >

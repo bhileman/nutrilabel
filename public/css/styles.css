@@ -1,6 +1,6 @@
 body {
 
-	background-color: #515151 !important;
+	background-color: rgb(243, 243, 243, 0.5) !important;
 
 }
 
@@ -11,6 +11,13 @@ body {
 	max-width: 1000px;
 	margin:0 auto;
 	padding: 20px 20px 30px 10px;
+
+
+}
+
+.nonotice {
+
+	padding-top: 60px;
 
 }
 
@@ -50,10 +57,29 @@ body {
 /*  nav bar    */
 
 .navbar {
-	background-color: #00B4FF !important;
+
 	margin-bottom: 0px;
 	font-family: 'Montserrat', sans-serif;
-	padding: 5px 0px !important;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: white;
+
+}
+
+nav .navbar-nav li a{
+  color: white !important;
+  }
+
+.navbar-brand img {
+
+	margin: 0px 20px 0px 40px;
+
+}
+
+.nav-item {
+
+	margin:0px 10px;
+
 }
 
 
@@ -61,10 +87,10 @@ body {
 
 .notice {
 
-	padding: 20px 10px;
+	padding: 30px 30px;
 	font-family: 'Montserrat', sans-serif;
-	background-color: rgba(255, 255, 255, .1);
-	color: white;
+	background-color: #d9edf7;
+	color: #243F6E;
 	margin-top: 15px;
 	margin-bottom: 35px;
 	border: 1px solid white;
@@ -85,7 +111,7 @@ h3 {
 }
 
 .notice p {
-	font-size: 14px;
+	font-size: 13px;
 }
 
 
@@ -94,11 +120,11 @@ h3 {
 
 #formSection {
 	font-family: 'Montserrat', sans-serif;
-	background-color: #515151;
+	background-color: rgba(254,254,254,0.3);
 }
 
 .col-form-label {
-	color: white;
+	color: #444;
 	font-weight: 700; 
 	font-size: .9em !important;
 	text-align: right;
@@ -115,7 +141,7 @@ input {
 	width: 100%;
 	padding: .2em 5px 3px; 
 	background: none;
-	color: #d3d3d3; 
+	color: #444; 
 	font-size: .8em; 
 	font-weight: 200; 
 	border: none; 
@@ -123,7 +149,7 @@ input {
 }
 
 input:hover, input:focus {
-	background-color: #373C3D;
+	background-color: #f3f3f3;
 }
 
 table, td {
@@ -195,7 +221,7 @@ input:invalid {
 
 	cursor: pointer;
 	font-size: 15px;
-	color : white;
+	color : rgb(0, 187, 143);
 	text-align: center;
 	padding: 10px 0px 0px 10px;
 
@@ -205,7 +231,7 @@ input:invalid {
 
 	cursor: pointer;
 	font-size: 20px;
-	color : white;
+	color : rgb(0, 187, 143);
 	text-align: center;
 	padding: 10px 0px 0px 10px;
 
@@ -233,12 +259,13 @@ input:invalid {
 	background-color: white;
 	min-width: min-content;
 	border-radius: 5px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 
 .button {
 	font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(#00CBFF, #00B4FF);
+    background: rgb(0, 187, 143);
     border: none;
     border-radius: 5px;
     color: white;
@@ -252,27 +279,9 @@ input:invalid {
     cursor: pointer;
 }
 
-.buttonOutline {
-	font-family: 'Montserrat', sans-serif;
-    background: white;
-    border: 1px solid #00B4FF;
-    color: #00B4FF;
-    padding: 15px 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    font-weight: 700;
-    margin: 0px 0px 0px 0px;
-    cursor: pointer;
-}
-
-.buttonOutline:hover {
-	color: #00B4FF;
-}
 
 .button:hover {
-    background-color: #f9856e;
+    background-color: rgb(0, 140, 107);
     color: white;
 }
 
@@ -306,12 +315,12 @@ input:invalid {
 /*    Footer Section     */
 
 .footer {
-	padding:20px;
-	color: white;
+	padding:20px 60px;
+	color: #444;
 	font-size: 12px;
 	text-align: center;
-	background-color: rgba(255, 255, 255, .1);
-	margin-top: 100px;
+	background-color: rgb(243, 243, 243, 0.8);
+	margin-top: 50px;
 ;
 }
 
@@ -334,7 +343,7 @@ input:invalid {
   left: 0;
   right: 0;
   top: 0;
-  background: #008BD1;
+  background: rgb(0, 104, 79);
   height: 4px;
   -webkit-transform: translateY(-4px);
   transform: translateY(-4px);
