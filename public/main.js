@@ -25,7 +25,7 @@ let canvasValues = {
         supActive: true,
         active: true,
         value: 8,
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         label: 'Servings Per Container',
 
     },
@@ -35,7 +35,7 @@ let canvasValues = {
         supActive: true,
         active: true,
         value: '2/3',
-        font: '900 11pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '900 11pt Arial',
         label: 'Serving Size Quantity',
         type: "text"
 
@@ -46,7 +46,7 @@ let canvasValues = {
         supActive: false,
         active: true,
         value: 'cups',
-        font: '900 11pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '900 11pt Arial',
         label: 'Serving Size Unit',
         type: "text"
 
@@ -58,7 +58,7 @@ let canvasValues = {
         active: true,
         value: 100,
         units: 'g',
-        font: '900 11pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '900 11pt Arial',
         label: 'Serving Size Quantity',
 
     },
@@ -68,7 +68,7 @@ let canvasValues = {
         supActive: false,
         active: true,
         value: 230,
-        font: '900 18pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '900 18pt Arial',
         label: 'Calories',
         units: 'none',
 
@@ -80,7 +80,7 @@ let canvasValues = {
         suponly: true,
         active: false,
         value: 200,
-        font: '900 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '900 9pt Arial',
         label: 'Calories From Saturated Fat',
         indent: '0',
         units: 'none',
@@ -94,7 +94,7 @@ let canvasValues = {
         value: 8,
         label: 'Total Fat',
         units: 'g',
-        font: '900 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '900 9pt Arial',
         indent: '0',
         dv: 78,     
 
@@ -107,7 +107,7 @@ let canvasValues = {
         value: 1,
         label: 'Saturated Fat',
         units: 'g',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '1',
         dv: 20,      
 
@@ -121,7 +121,7 @@ let canvasValues = {
         formLabel: 'Trans Fat',
         label: 'Trans Fat',
         units: 'g',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '1',      
 
     },
@@ -133,7 +133,7 @@ let canvasValues = {
         value: 0,
         label: 'Polysaturated Fat',
         units: 'g',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '1',      
 
     },
@@ -145,7 +145,7 @@ let canvasValues = {
         value: 0,
         label: 'Monosaturated Fat',
         units: 'g',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '1',      
 
     },
@@ -157,7 +157,7 @@ let canvasValues = {
         value: 0,
         label: 'Cholesterol',
         units: 'mg',
-        font: '900 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '900 9pt Arial',
         indent: '0',
         dv: 300,      
 
@@ -170,7 +170,7 @@ let canvasValues = {
         value: 160,
         label: 'Sodium',
         units: 'mg',
-        font: '900 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '900 9pt Arial',
         indent: '0',
         dv: 2300,      
 
@@ -183,7 +183,7 @@ let canvasValues = {
         value: 37,
         label: 'Total Carbohydrates',
         units: 'g',
-        font: '900 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '900 9pt Arial',
         indent: '0',
         dv: 275,      
 
@@ -196,7 +196,7 @@ let canvasValues = {
         value: 4,
         label: 'Dietary Fiber',
         units: 'g',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '1',
         dv: 28,      
 
@@ -209,7 +209,7 @@ let canvasValues = {
         value: 12,
         label: 'Total Sugars',
         units: 'g',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '1',     
 
     },
@@ -229,7 +229,7 @@ let canvasValues = {
 
         label: 'Includes Added Sugars',
         units: 'g',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '2', 
         dv: 50,    
 
@@ -243,7 +243,7 @@ let canvasValues = {
         formLabel: 'Sugar Alcohol',
         label: 'Sugar Alcohol',
         units: 'g',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '1',    
 
     },
@@ -255,8 +255,8 @@ let canvasValues = {
         value: 3,
         label: 'Protein',
         units: 'g',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
-        postfont: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
+        postfont: '300 9pt Arial',
         indent: '0', 
         dv: 50,    
 
@@ -270,7 +270,7 @@ let canvasValues = {
         value: 2,
         label: 'Vitamin D',
         units: 'mcg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 20, 
         break: 7,
@@ -284,7 +284,7 @@ let canvasValues = {
         value: 260,
         label: 'Calcium',
         units: 'mg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 1300, 
 
@@ -297,7 +297,7 @@ let canvasValues = {
         value: 8,
         label: 'Iron',
         units: 'mg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 18, 
 
@@ -310,7 +310,7 @@ let canvasValues = {
         value: 235,
         label: 'Potassium',
         units: 'mg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 4700, 
 
@@ -323,7 +323,7 @@ let canvasValues = {
         value: 900,
         label: 'Vitamin A',
         units: 'mcg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 900,
         section: 'add',
@@ -342,7 +342,7 @@ let canvasValues = {
 
         ],
         units: 'mg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 90,
         section: 'add', 
@@ -356,7 +356,7 @@ let canvasValues = {
         value: 15,
         label: 'Vitamin E',
         units: 'mcg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 15,
         section: 'add', 
@@ -370,7 +370,7 @@ let canvasValues = {
         value: 120,
         label: 'Vitamin K',
         units: 'mcg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 120,
         section: 'add', 
@@ -389,7 +389,7 @@ let canvasValues = {
 
         ],
         units: 'mg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 1.2,
         section: 'add', 
@@ -408,7 +408,7 @@ let canvasValues = {
 
         ],
         units: 'mg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 1.3,
         section: 'add', 
@@ -422,7 +422,7 @@ let canvasValues = {
         value: 16,
         label: 'Niacin',
         units: 'mg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 16,
         section: 'add', 
@@ -436,7 +436,7 @@ let canvasValues = {
         value: 1.7,
         label: 'Vitamin B6',
         units: 'mg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 1.7,
         section: 'add', 
@@ -450,7 +450,7 @@ let canvasValues = {
         value: 400,
         label: 'Folate',
         units: 'mcg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 400,
         section: 'add', 
@@ -464,7 +464,7 @@ let canvasValues = {
         value: 2.4,
         label: 'Vitamin B12',
         units: 'mcg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 2.4,
         section: 'add', 
@@ -478,7 +478,7 @@ let canvasValues = {
         value: 30,
         label: 'Biotin',
         units: 'mcg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 30,
         section: 'add', 
@@ -492,7 +492,7 @@ let canvasValues = {
         value: 5,
         label: 'Pantothenic Acid',
         units: 'mg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 5,
         section: 'add', 
@@ -506,7 +506,7 @@ let canvasValues = {
         value: 550,
         label: 'Choline',
         units: 'mg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 550,
         section: 'add', 
@@ -520,7 +520,7 @@ let canvasValues = {
         value: 1250,
         label: 'Phosphorus',
         units: 'mg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 1250,
         section: 'add', 
@@ -534,7 +534,7 @@ let canvasValues = {
         value: 150,
         label: 'Iodine',
         units: 'mcg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 150,
         section: 'add', 
@@ -548,7 +548,7 @@ let canvasValues = {
         value: 420,
         label: 'Magnesium',
         units: 'mg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 420,
         section: 'add', 
@@ -562,7 +562,7 @@ let canvasValues = {
         value: 11,
         label: 'Zinc',
         units: 'mg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 11,
         section: 'add', 
@@ -576,7 +576,7 @@ let canvasValues = {
         value: 55,
         label: 'Selenium',
         units: 'mcg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 55,
         section: 'add',
@@ -590,7 +590,7 @@ let canvasValues = {
         value: 0.9,
         label: 'Copper',
         units: 'mg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 0.9,
         section: 'add', 
@@ -604,7 +604,7 @@ let canvasValues = {
         value: 2.3,
         label: 'Manganese',
         units: 'mg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 2.3,
         section: 'add', 
@@ -618,7 +618,7 @@ let canvasValues = {
         value: 35,
         label: 'Chromium',
         units: 'mg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 35,
         section: 'add', 
@@ -632,7 +632,7 @@ let canvasValues = {
         value: 45,
         label: 'Molybdenum',
         units: 'mcg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 45,
         section: 'add', 
@@ -646,7 +646,7 @@ let canvasValues = {
         value: 2300,
         label: 'Chloride',
         units: 'mg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0', 
         dv: 2300,
         section: 'add', 
@@ -660,7 +660,7 @@ let canvasValues = {
         value: 0,
         label: 'Fluoride',
         units: 'mg',
-        font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+        font: '300 9pt Arial',
         indent: '0',
         section: 'add', 
 
@@ -898,7 +898,7 @@ function setNewValueSup(event) {
                 value: customValue.value,
                 label: customTitle.value,
                 units: customUnits.value,
-                font: '300 9pt Helvetica, "Segoe UI", Arial, sans-serif',
+                font: '300 9pt Arial',
                 indent: '0', 
                 section: 'add', 
 
@@ -1131,7 +1131,7 @@ function drawActive(ctx, yPos) {
 
             if (key == "transFat") {
 
-                ctx.font='300 italic 9pt Helvetica, "Segoe UI", Arial, sans-serif';
+                ctx.font='300 italic 9pt Arial';
                 ctx.fillText('Trans', indent, yPos += 13);
                 ctx.font = item["font"];
                 ctx.fillText('Fat ' + item["value"] + item["units"], 53, yPos);
@@ -1156,13 +1156,13 @@ function drawActive(ctx, yPos) {
                 if (item["section"] == "add") {
 
                     ctx.textAlign="right";
-                    ctx.font='300 9pt Helvetica, "Segoe UI", Arial, sans-serif';
+                    ctx.font='300 9pt Arial';
                     ctx.fillText( calPerc , (cWidth - 6), yPos);
 
                 } else {
 
                     ctx.textAlign="right";
-                    ctx.font='900 9pt Helvetica, "Segoe UI", Arial, sans-serif';
+                    ctx.font='900 9pt Arial';
                     ctx.fillText( calPerc , (cWidth - 6), yPos);
 
                 }
@@ -1229,14 +1229,14 @@ function drawSupActive(ctx, yPos) {
 
 
         ctx.textAlign = "start";
-        ctx.font = '300 9pt Helvetica, "Segoe UI", Arial, sans-serif';
+        ctx.font = '300 9pt Arial';
         console.log(canvasValues[key].units);
 
         if (key == "transFat") {
 
-                ctx.font='300 italic 9pt Helvetica, "Segoe UI", Arial, sans-serif';
+                ctx.font='300 italic 9pt Arial';
                 ctx.fillText('Trans', indent, yPos += 13);
-                ctx.font = '300 9pt Helvetica, "Segoe UI", Arial, sans-serif';
+                ctx.font = '300 9pt Arial';
                 ctx.fillText('Fat ' + item["value"] + item["units"], 53, yPos);
 
         } else if (key == "addSugar") {
@@ -1265,13 +1265,13 @@ function drawSupActive(ctx, yPos) {
                 if (item["section"] == "add") {
 
                     ctx.textAlign="right";
-                    ctx.font='300 9pt Helvetica, "Segoe UI", Arial, sans-serif';
+                    ctx.font='300 9pt Arial';
                     ctx.fillText( calPerc , (cWidth - 6), yPos);
 
                 } else {
 
                     ctx.textAlign="right";
-                    ctx.font='300 9pt Helvetica, "Segoe UI", Arial, sans-serif';
+                    ctx.font='300 9pt Arial';
                     ctx.fillText( calPerc , (cWidth - 6), yPos);
 
                 }
@@ -1279,7 +1279,7 @@ function drawSupActive(ctx, yPos) {
             } else if ( key == 'cal' || key == 'calFat' ) {
 
                 ctx.textAlign="right";
-                ctx.font='300 9pt Helvetica, "Segoe UI", Arial, sans-serif';
+                ctx.font='300 9pt Arial';
                 ctx.fillText( " " , (cWidth - 6), yPos);
 
             }
@@ -1289,7 +1289,7 @@ function drawSupActive(ctx, yPos) {
                 noDvActive = true;
 
                 ctx.textAlign="right";
-                ctx.font='300 10pt Helvetica, "Segoe UI", Arial, sans-serif';
+                ctx.font='300 10pt Arial';
                 ctx.fillText( '\u271D' , (cWidth - 6), yPos);
 
             }
@@ -1352,15 +1352,15 @@ function drawSup() {
         
         //Supplement Fact Heading
         ctx.textAlign="start";
-        ctx.font='800 19.8pt Helvetica, "Segoe UI", Arial, sans-serif';
+        ctx.font='800 19.8pt Arial';
         ctx.fillText('Supplement Facts', 6, yPos += 29);
         
         //Servings Size 
-        ctx.font='300 9pt Helvetica, "Segoe UI", Arial, sans-serif';
+        ctx.font='300 9pt Arial';
         ctx.fillText('Serving size' + " " + canvasValues["servingSize"]["value"], 6, yPos += 19);
 
         //Servings Per Container
-        ctx.font='300 9pt Helvetica, "Segoe UI", Arial, sans-serif';
+        ctx.font='300 9pt Arial';
         ctx.fillText('Servings Per Container' + " " + canvasValues["servingPerCont"]["value"], 6, yPos += 13);
              
         //7 pt seperator line
@@ -1372,13 +1372,13 @@ function drawSup() {
         
         //Amount Per Serving Title
         ctx.textAlign="left"; 
-        ctx.font='900 8pt Helvetica, "Segoe UI", Arial, sans-serif';
+        ctx.font='900 8pt Arial';
         ctx.fillText('Amount per serving', 6, yPos += 18); 
         
         
         //% Daily Value
         ctx.textAlign="center"; 
-        ctx.font='900 8pt Helvetica, "Segoe UI", Arial, sans-serif';
+        ctx.font='900 8pt Arial';
         ctx.fillText('% Daily Value', (cWidth - 41), yPos); 
         
         //3 pt seperator line
@@ -1401,7 +1401,7 @@ function drawSup() {
 
         //Disclosure Section 
         ctx.textAlign="start";
-        ctx.font='300 6.2pt Helvetica, "Segoe UI", Arial, sans-serif';
+        ctx.font='300 6.2pt Arial';
 
         if (dvActive) {
 
@@ -1435,7 +1435,7 @@ function draw() {
         ctx.strokeRect(0, 0, cWidth, cHeight);
         
         //Nutrition Fact Heading
-        ctx.font='800 22.7pt Helvetica, "Segoe UI", Arial, sans-serif';
+        ctx.font='800 22.7pt Arial';
         ctx.fillText('Nutrition Facts', 6, yPos += 29);
         
         //1/4 pt seperator line
@@ -1446,13 +1446,13 @@ function draw() {
         ctx.stroke();
         
         //Servings per container
-        ctx.font='300 10pt Helvetica, "Segoe UI", Arial, sans-serif';
+        ctx.font='300 10pt Arial';
         ctx.fillText(canvasValues["servingPerCont"]["value"] + ' Servings per container', 6, yPos += 14);
         
         //Servings Size title
-        ctx.font='900 11pt Helvetica, "Segoe UI", Arial, sans-serif';
+        ctx.font='900 11pt Arial';
         ctx.fillText('Serving size', 6, yPos += 16);       
-        ctx.font='900 11pt Helvetica, "Segoe UI", Arial, sans-serif';
+        ctx.font='900 11pt Arial';
         ctx.textAlign="right"; 
         ctx.fillText(canvasValues["servingSize"]["value"] + ' ' + canvasValues["servingSizeUnit"]["value"] + 
             ' (' + canvasValues["servingSizeCalc"]["value"] + 'g)'
@@ -1467,16 +1467,16 @@ function draw() {
         
         //Amount Per Serving Title
         ctx.textAlign="start"; 
-        ctx.font='900 8pt Helvetica, "Segoe UI", Arial, sans-serif';
+        ctx.font='900 8pt Arial';
         ctx.fillText('Amount per serving', 6, yPos += 17); 
         
         //Calories Title
-        ctx.font='900 18pt Helvetica, "Segoe UI", Arial, sans-serif';
+        ctx.font='900 18pt Arial';
         ctx.fillText('Calories', 6, yPos += 21);
         
         //Calories Value
         ctx.textAlign="right";
-        ctx.font='900 25pt Helvetica, "Segoe UI", Arial, sans-serif';
+        ctx.font='900 25pt Arial';
         ctx.fillText(canvasValues["cal"]["value"], (cWidth - 6), yPos);
         
         //4 pt seperator line
@@ -1487,7 +1487,7 @@ function draw() {
         ctx.stroke();
         
         //% Daily Value
-        ctx.font='900 8pt Helvetica, "Segoe UI", Arial, sans-serif';
+        ctx.font='900 8pt Arial';
         ctx.fillText('% Daily Value*', (cWidth - 6), yPos += 15);
 
         let lastypos = drawActive(ctx, yPos);
@@ -1502,7 +1502,7 @@ function draw() {
 
         //Disclosure Section   eventually build out with wrap function
         ctx.textAlign="start";
-        ctx.font='300 6.2pt Helvetica, "Segoe UI", Arial, sans-serif';
+        ctx.font='300 6.2pt Arial';
         ctx.fillText('* The % Daily Value (DV) tells you how much a nutrient in', 6, lastypos += 13); 
         ctx.fillText('a serving of food contributes to a daily diet. 2,000 calories', 6, lastypos += 10);
         ctx.fillText('a day is used for general nutrition advice.', 6, lastypos += 10);
