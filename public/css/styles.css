@@ -5,13 +5,34 @@ body {
 }
 
 
-
 .mainContainer {
 	
 	max-width: 1000px;
 	margin:0 auto;
 	padding: 20px 20px 30px 10px;
 
+}
+
+.textpage {
+
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	color: #243F6E;
+	font-size: 14px;
+
+}
+
+.textpage p{
+
+	margin-bottom: 35px;
+
+}
+
+.h4 {
+
+	margin:5px 0;
+	font-size: 18px;	
+	font-weight: 900;
 
 }
 
@@ -89,29 +110,22 @@ nav .navbar-nav li a{
 
 	padding: 30px 30px;
 	font-family: 'Montserrat', sans-serif;
-	background-color: #d9edf7;
 	color: #243F6E;
 	margin-top: 15px;
 	margin-bottom: 35px;
-	border: 1px solid white;
-
-}
-
-.notice a {
-
-	color: #00B4FF;
-	text-decoration: underline;
-
-}
-
-h3 {
-
-	font-weight: bold !important;
-	font-size: 18px !important;
+	text-align: center;
+	
 }
 
 .notice p {
-	font-size: 13px;
+
+	font-size: 16px;
+}
+
+.notice h3 {
+
+	font-weight: bold !important;
+	font-size: 24px !important;
 }
 
 

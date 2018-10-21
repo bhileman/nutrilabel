@@ -1,36 +1,137 @@
-var express = require("express"),
-    app = express(),
-    path = require("path"),
-    bodyParser = require("body-parser"),
-    helmet = require('helmet');
+"use strict";
 
-app.set('view engine', 'html');
-app.set('views', path.join(__dirname, 'views'));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(helmet())
+const express = require("express");
+const app = require('./config');
+const Prismic = require('prismic-javascript');
+const PrismicDOM = require('prismic-dom');
+const UIhelpers = require('./includes/UIhelpers');
+const Cookies = require('cookies');
+const PrismicConfig = require('./prismic-configuration');
+const PORT = app.get('port');
 
-app.get("/", function(req, res){
+app.listen(PORT, () => {
+  process.stdout.write(`Point your browser to: http://localhost:${PORT}\n`);
+});
+
+// Middleware to connect to inject prismic context
+app.use((req, res, next) => {
+  res.locals.ctx = {
+    endpoint: PrismicConfig.apiEndpoint,
+    linkResolver: PrismicConfig.linkResolver,
+  };
+  
+  // Add UI helpers to access them in templates
+  res.locals.UIhelpers = UIhelpers;
+  
+  // Add PrismicDOM in locals to access them in templates
+  res.locals.PrismicDOM = PrismicDOM;
+  
+  // Add the prismic.io API to the req
+  Prismic.api(PrismicConfig.apiEndpoint, {
+    accessToken: PrismicConfig.accessToken,
+    req,
+  }).then((api) => {
+    req.prismic = { api };
+    next();
+  }).catch((error) => {
+    next(error.message);
+  });
+});
+
+/**
+* Preconfigured prismic preview
+*/
+app.get('/preview', (req, res) => {
+  const token = req.query.token;
+  if (token) {
+    req.prismic.api.previewSession(token, PrismicConfig.linkResolver, '/').then((url) => {
+      const cookies = new Cookies(req, res);
+      cookies.set(Prismic.previewCookie, token, { maxAge: 30 * 60 * 1000, path: '/', httpOnly: false });
+      res.redirect(302, url);
+    }).catch((err) => {
+      res.status(500).send(`Error 500 in preview: ${err.message}`);
+    });
+  } else {
+    res.send(400, 'Missing token from querystring');
+  }
+});
+
+
+//home, nut. label maker
+app.get(["/","/nutrition"], function(req, res){
     res.sendFile('views/landing.html' , { root : __dirname});
   });
 
+
+//supplement label maker
 app.get("/supplement", function(req, res){
     res.sendFile('views/supplement.html' , { root : __dirname});
   });
 
-/*
-app.get("/main.js", function(req, res){
-    res.sendfile("views/main.js");  
+//privacy policy
+app.get("/privacy", function(req, res){
+    res.sendFile('views/privacypolicy.html' , { root : __dirname});
+  });
+
+//terms of use
+app.get("/terms", function(req, res){
+    res.sendFile('views/termsofuse.html' , { root : __dirname});
+  });
+
+// Route for blog homepage
+app.get("/blog", (req, res) =>
+
+  // Query the homepage
+  req.prismic.api.getSingle("blog_home").then((bloghome) => {
+    
+    // If a document is returned...
+    if (bloghome) {
+
+      var queryOptions = {
+        page: req.params.p || '1',
+        orderings: '[my.post.date desc]'
+      };
+
+      // Query the posts
+      req.prismic.api.query(
+        Prismic.Predicates.at("document.type", "post"),
+        queryOptions
+      ).then(function(response) {
+        
+        // Render the blog homepage
+        res.render('bloghome', {
+          bloghome,
+          posts : response.results
+        });
+
+      });
+
+    } else {
+      // If a bloghome document is not returned, give an error
+      res.status(404).send('Not found');
+    }
+  })
+);
+
+
+// Route for blog posts
+app.get("/blog/:uid", (req, res) => {
+
+  // Define the uid from the url
+  const uid = req.params.uid;
+
+  // Query the post by its uid
+  req.prismic.api.getByUID('post', uid).then(post => {
+
+    if (post) {
+      // If a document is returned, render the post
+      res.render('post', { post });
+      
+    // Else give an error
+    } else {
+      res.status(404).send('Not found');
+    }
+  });
 });
-*/
-
-// bind the app to listen for connections on a specified port
-var port = process.env.PORT || 3000;
-app.listen(port);
-
-// Render some console log output
-console.log("Listening on port " + port);
  
  
- 
-// create server side js file that will contain all canvas code as well as DOM elements to update canvas with form inputs
