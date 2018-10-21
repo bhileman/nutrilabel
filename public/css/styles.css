@@ -110,7 +110,7 @@ nav .navbar-nav li a{
 
 	padding: 30px 30px;
 	font-family: 'Montserrat', sans-serif;
-	color: #243F6E;
+	color: black;
 	margin-top: 15px;
 	margin-bottom: 35px;
 	text-align: center;
@@ -267,7 +267,12 @@ input:invalid {
 
 /*    Label Section     */
 
+#labelcolumn {
+	overflow-y: scroll;
+}
+
 #labelSection {
+	
 	text-align: center;
 	padding: 40px; 
 	background-color: white;
@@ -283,11 +288,11 @@ input:invalid {
     border: none;
     border-radius: 5px;
     color: white;
-    padding: 15px 45px;
+    padding: 15px 40px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
     margin: 10px 0px 0px 0px;
     cursor: pointer;
@@ -307,21 +312,40 @@ input:invalid {
 	margin-bottom: 0px;
 }
 
-#premiumText {
-	font-family: 'Montserrat', sans-serif;
-	border-top: 1px solid #282F32; 
-	color: #282F32;
-	font-size: 14px;
-	padding-top: 10px;
+.printready {
+
+	margin-top: 25px;
+	border-top: 1px solid gray;
+	font-family: 'Montserrat', sans-serif; 
+
 }
 
-#premiumList {
-	font-family: 'Montserrat', sans-serif;
-	color: #282F32;;
-	font-size: 12px;
+.printready h3 {
+
+	font-size: 16px;
+	font-weight: bold;
+	margin: 15px 0 5px 0;
+
+}
+
+.printready li {
+
+	font-size: 14px;
+	font-style: italic;
+	padding:0px 0;
+	text-align: left !important;
+
+}
+
+.printready p {
+
+	padding:5px 0;
+
 }
 
 .sticky-top {
+
+
 	
 }
 

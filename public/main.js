@@ -941,6 +941,22 @@ document.getElementById('download').addEventListener('click', function() {
     
 }, false);
 
+document.getElementById('download_printready').addEventListener('click', function() {
+
+    //google event tracking
+    gtag('event', 'download_printready', {
+
+        'event_callback': function() {
+        console.log("event recieved");
+
+        }
+
+    });
+
+    alert("Feature Coming Soon! Check back soon.")
+    
+}, false);
+
 
 function makeFilename() {
   var text = "";
