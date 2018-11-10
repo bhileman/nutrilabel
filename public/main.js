@@ -25,7 +25,7 @@ let canvasValues = {
         supActive: true,
         active: true,
         value: 8,
-        font: '9pt Arial',
+        font: '27pt Arial',
         label: 'Servings Per Container',
 
     },
@@ -35,7 +35,7 @@ let canvasValues = {
         supActive: true,
         active: true,
         value: '2/3',
-        font: 'Bold 11pt Arial',
+        font: 'Bold 33pt Arial',
         label: 'Serving Size Quantity',
         type: "text"
 
@@ -46,7 +46,7 @@ let canvasValues = {
         supActive: false,
         active: true,
         value: 'cups',
-        font: 'Bold 11pt Arial',
+        font: 'Bold 33pt Arial',
         label: 'Serving Size Unit',
         type: "text"
 
@@ -58,7 +58,7 @@ let canvasValues = {
         active: true,
         value: 100,
         units: 'g',
-        font: 'Bold 11pt Arial',
+        font: 'Bold 33pt Arial',
         label: 'Serving Size Quantity',
 
     },
@@ -68,7 +68,7 @@ let canvasValues = {
         supActive: false,
         active: true,
         value: 230,
-        font: 'Bold 18pt Arial',
+        font: 'Bold 54pt Arial',
         label: 'Calories',
         units: 'none',
 
@@ -80,7 +80,7 @@ let canvasValues = {
         suponly: true,
         active: false,
         value: 200,
-        font: 'Bold 9pt Arial',
+        font: 'Bold 27pt Arial',
         label: 'Calories From Saturated Fat',
         indent: '0',
         units: 'none',
@@ -94,7 +94,7 @@ let canvasValues = {
         value: 8,
         label: 'Total Fat',
         units: 'g',
-        font: 'Bold 9pt Arial',
+        font: 'Bold 27pt Arial',
         indent: '0',
         dv: 78,     
 
@@ -107,7 +107,7 @@ let canvasValues = {
         value: 1,
         label: 'Saturated Fat',
         units: 'g',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '1',
         dv: 20,      
 
@@ -121,7 +121,7 @@ let canvasValues = {
         formLabel: 'Trans Fat',
         label: 'Trans Fat',
         units: 'g',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '1',      
 
     },
@@ -133,7 +133,7 @@ let canvasValues = {
         value: 0,
         label: 'Polysaturated Fat',
         units: 'g',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '1',      
 
     },
@@ -145,7 +145,7 @@ let canvasValues = {
         value: 0,
         label: 'Monosaturated Fat',
         units: 'g',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '1',      
 
     },
@@ -157,7 +157,7 @@ let canvasValues = {
         value: 0,
         label: 'Cholesterol',
         units: 'mg',
-        font: 'Bold 9pt Arial',
+        font: 'Bold 27pt Arial',
         indent: '0',
         dv: 300,      
 
@@ -170,7 +170,7 @@ let canvasValues = {
         value: 160,
         label: 'Sodium',
         units: 'mg',
-        font: 'Bold 9pt Arial',
+        font: 'Bold 27pt Arial',
         indent: '0',
         dv: 2300,      
 
@@ -183,7 +183,7 @@ let canvasValues = {
         value: 37,
         label: 'Total Carbohydrates',
         units: 'g',
-        font: 'Bold 9pt Arial',
+        font: 'Bold 27pt Arial',
         indent: '0',
         dv: 275,      
 
@@ -196,7 +196,7 @@ let canvasValues = {
         value: 4,
         label: 'Dietary Fiber',
         units: 'g',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '1',
         dv: 28,      
 
@@ -209,7 +209,7 @@ let canvasValues = {
         value: 12,
         label: 'Total Sugars',
         units: 'g',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '1',     
 
     },
@@ -229,7 +229,7 @@ let canvasValues = {
 
         label: 'Includes Added Sugars',
         units: 'g',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '2', 
         dv: 50,    
 
@@ -243,7 +243,7 @@ let canvasValues = {
         formLabel: 'Sugar Alcohol',
         label: 'Sugar Alcohol',
         units: 'g',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '1',    
 
     },
@@ -255,8 +255,8 @@ let canvasValues = {
         value: 3,
         label: 'Protein',
         units: 'g',
-        font: '9pt Arial',
-        postfont: '9pt Arial',
+        font: '27pt Arial',
+        postfont: '27pt Arial',
         indent: '0', 
         dv: 50,    
 
@@ -270,7 +270,7 @@ let canvasValues = {
         value: 2,
         label: 'Vitamin D',
         units: 'mcg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 20, 
         break: 7,
@@ -284,7 +284,7 @@ let canvasValues = {
         value: 260,
         label: 'Calcium',
         units: 'mg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 1300, 
 
@@ -297,7 +297,7 @@ let canvasValues = {
         value: 8,
         label: 'Iron',
         units: 'mg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 18, 
 
@@ -310,7 +310,7 @@ let canvasValues = {
         value: 235,
         label: 'Potassium',
         units: 'mg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 4700, 
 
@@ -323,7 +323,7 @@ let canvasValues = {
         value: 900,
         label: 'Vitamin A',
         units: 'mcg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 900,
         section: 'add',
@@ -342,7 +342,7 @@ let canvasValues = {
 
         ],
         units: 'mg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 90,
         section: 'add', 
@@ -356,7 +356,7 @@ let canvasValues = {
         value: 15,
         label: 'Vitamin E',
         units: 'mcg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 15,
         section: 'add', 
@@ -370,7 +370,7 @@ let canvasValues = {
         value: 120,
         label: 'Vitamin K',
         units: 'mcg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 120,
         section: 'add', 
@@ -389,7 +389,7 @@ let canvasValues = {
 
         ],
         units: 'mg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 1.2,
         section: 'add', 
@@ -408,7 +408,7 @@ let canvasValues = {
 
         ],
         units: 'mg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 1.3,
         section: 'add', 
@@ -422,7 +422,7 @@ let canvasValues = {
         value: 16,
         label: 'Niacin',
         units: 'mg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 16,
         section: 'add', 
@@ -436,7 +436,7 @@ let canvasValues = {
         value: 1.7,
         label: 'Vitamin B6',
         units: 'mg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 1.7,
         section: 'add', 
@@ -450,7 +450,7 @@ let canvasValues = {
         value: 400,
         label: 'Folate',
         units: 'mcg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 400,
         section: 'add', 
@@ -464,7 +464,7 @@ let canvasValues = {
         value: 2.4,
         label: 'Vitamin B12',
         units: 'mcg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 2.4,
         section: 'add', 
@@ -478,7 +478,7 @@ let canvasValues = {
         value: 30,
         label: 'Biotin',
         units: 'mcg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 30,
         section: 'add', 
@@ -492,7 +492,7 @@ let canvasValues = {
         value: 5,
         label: 'Pantothenic Acid',
         units: 'mg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 5,
         section: 'add', 
@@ -506,7 +506,7 @@ let canvasValues = {
         value: 550,
         label: 'Choline',
         units: 'mg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 550,
         section: 'add', 
@@ -520,7 +520,7 @@ let canvasValues = {
         value: 1250,
         label: 'Phosphorus',
         units: 'mg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 1250,
         section: 'add', 
@@ -534,7 +534,7 @@ let canvasValues = {
         value: 150,
         label: 'Iodine',
         units: 'mcg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 150,
         section: 'add', 
@@ -548,7 +548,7 @@ let canvasValues = {
         value: 420,
         label: 'Magnesium',
         units: 'mg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 420,
         section: 'add', 
@@ -562,7 +562,7 @@ let canvasValues = {
         value: 11,
         label: 'Zinc',
         units: 'mg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 11,
         section: 'add', 
@@ -576,7 +576,7 @@ let canvasValues = {
         value: 55,
         label: 'Selenium',
         units: 'mcg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 55,
         section: 'add',
@@ -590,7 +590,7 @@ let canvasValues = {
         value: 0.9,
         label: 'Copper',
         units: 'mg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 0.9,
         section: 'add', 
@@ -604,7 +604,7 @@ let canvasValues = {
         value: 2.3,
         label: 'Manganese',
         units: 'mg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 2.3,
         section: 'add', 
@@ -618,7 +618,7 @@ let canvasValues = {
         value: 35,
         label: 'Chromium',
         units: 'mg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 35,
         section: 'add', 
@@ -632,7 +632,7 @@ let canvasValues = {
         value: 45,
         label: 'Molybdenum',
         units: 'mcg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 45,
         section: 'add', 
@@ -646,7 +646,7 @@ let canvasValues = {
         value: 2300,
         label: 'Chloride',
         units: 'mg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0', 
         dv: 2300,
         section: 'add', 
@@ -660,7 +660,7 @@ let canvasValues = {
         value: 0,
         label: 'Fluoride',
         units: 'mg',
-        font: '9pt Arial',
+        font: '27pt Arial',
         indent: '0',
         section: 'add', 
 
@@ -898,7 +898,7 @@ function setNewValueSup(event) {
                 value: customValue.value,
                 label: customTitle.value,
                 units: customUnits.value,
-                font: '9pt Arial',
+                font: '27pt Arial',
                 indent: '0', 
                 section: 'add', 
 
@@ -969,21 +969,19 @@ function makeFilename() {
 };
 
 
-
-
 function setCanvasDim(label) {
 
     if (label == "sup") {
         
-        cWidth = 240;
-        cHeight  = 127;
+        cWidth = 720;
+        cHeight  = 381;
 
         let canvasKeys = Object.keys(canvasValues);
         for (var i = 4; i < canvasKeys.length; i++) {
             let key = canvasKeys[i];
             if (canvasValues[key]["supActive"]) {
 
-                cHeight += 17;
+                cHeight += 51;
 
             }
 
@@ -992,22 +990,22 @@ function setCanvasDim(label) {
         
         if (dvActive && noDvActive) { 
 
-            cHeight += 12;
+            cHeight += 36;
 
         }
         
 
     } else {
 
-        cWidth = 226;
-        cHeight  = 190;
+        cWidth = 678;
+        cHeight  = 570;
 
         let canvasKeys = Object.keys(canvasValues);
         for (var i = 5; i < canvasKeys.length; i++) {
             let key = canvasKeys[i];
             if (canvasValues[key]["active"]) {
 
-                cHeight += 17;
+                cHeight += 51;
 
             }
 
@@ -1015,9 +1013,11 @@ function setCanvasDim(label) {
     }
 
 
+    let displayWidth = cWidth/2;
+    let displayHeight = cHeight/2;
 
-    canvas.style.width = cWidth.toString();
-    canvas.style.height = cHeight.toString();
+    canvas.style.width = '210px'; //displayWidth.toString()
+    canvas.style.height = displayHeight.toString();
 }
 
 
@@ -1095,7 +1095,7 @@ function drawActive(ctx, yPos) {
     for (var i = 5; i < canvasKeys.length; i++) {
 
         let key = canvasKeys[i];
-        let indent = 6;
+        let indent = 18;
 
         if (canvasValues[key]["active"] && canvasValues[key]["suponly"] == null) {
 
@@ -1103,19 +1103,19 @@ function drawActive(ctx, yPos) {
 
             if (item["indent"] == 0) {
 
-                indent = 6;
+                indent = 18;
 
             } else if (item["indent"] == 1) {
 
-                indent = 20;
+                indent = 60;
 
             } else if (item["indent"] == 2) {
 
-                indent = 35;
+                indent = 105;
 
             } else {
 
-                let indent = 6;
+                let indent = 18;
                 console.log("indent not recognized");
 
             };
@@ -1125,18 +1125,18 @@ function drawActive(ctx, yPos) {
 
                 let lineWidth = item["break"]
                 ctx.beginPath();
-                ctx.moveTo(indent, yPos += lineWidth + 1);
+                ctx.moveTo(indent, yPos += lineWidth + 9);
                 ctx.lineWidth = lineWidth;
-                ctx.lineTo((cWidth - 6), yPos);
+                ctx.lineTo((cWidth - 18), yPos);
                 ctx.stroke();
-                yPos += 3;
+                yPos += 9;
 
             } else {
 
                 ctx.beginPath();
-                ctx.moveTo(indent, yPos += 4);
-                ctx.lineWidth = 1;
-                ctx.lineTo((cWidth - 6), yPos);
+                ctx.moveTo(indent, yPos += 12);
+                ctx.lineWidth = 3;
+                ctx.lineTo((cWidth - 18), yPos);
                 ctx.stroke();
 
             }
@@ -1147,19 +1147,19 @@ function drawActive(ctx, yPos) {
 
             if (key == "transFat") {
 
-                ctx.font='italic 9pt Arial';
-                ctx.fillText('Trans', indent, yPos += 13);
+                ctx.font='italic 27pt Arial';
+                ctx.fillText('Trans', indent, yPos += 39);
                 ctx.font = item["font"];
-                ctx.fillText('Fat ' + item["value"] + item["units"], 53, yPos);
+                ctx.fillText('Fat ' + item["value"] + item["units"], 159, yPos);
 
             } else if (key == "addSugar") {
 
-                ctx.fillText('Includes', indent, yPos += 13);
-                ctx.fillText( item["value"] + 'g Added Sugars', 83, yPos);
+                ctx.fillText('Includes', indent, yPos += 39);
+                ctx.fillText( item["value"] + 'g Added Sugars', 249, yPos);
 
             } else {
 
-                ctx.fillText(item["label"] + " " + item["value"] + item["units"], indent, yPos += 13);               
+                ctx.fillText(item["label"] + " " + item["value"] + item["units"], indent, yPos += 39);               
 
             }
 
@@ -1172,14 +1172,14 @@ function drawActive(ctx, yPos) {
                 if (item["section"] == "add") {
 
                     ctx.textAlign="right";
-                    ctx.font='9pt Arial';
-                    ctx.fillText( calPerc , (cWidth - 6), yPos);
+                    ctx.font='27pt Arial';
+                    ctx.fillText( calPerc , (cWidth - 18), yPos);
 
                 } else {
 
                     ctx.textAlign="right";
-                    ctx.font='Bold 9pt Arial';
-                    ctx.fillText( calPerc , (cWidth - 6), yPos);
+                    ctx.font='Bold 27pt Arial';
+                    ctx.fillText( calPerc , (cWidth - 18), yPos);
 
                 }
             }
@@ -1197,7 +1197,7 @@ function drawSupActive(ctx, yPos) {
     for (var i = 4; i < canvasKeys.length; i++) {
 
         let key = canvasKeys[i];
-        let indent = 6;
+        let indent = 18;
 
         if (canvasValues[key]["supActive"]) {
 
@@ -1205,19 +1205,19 @@ function drawSupActive(ctx, yPos) {
 
             if (item["indent"] == 0) {
 
-                indent = 6;
+                indent = 18;
 
             } else if (item["indent"] == 1) {
 
-                indent = 20;
+                indent = 60;
 
             } else if (item["indent"] == 2) {
 
-                indent = 35;
+                indent = 105;
 
             } else {
 
-                let indent = 6;
+                let indent = 18;
                 console.log("indent not recognized");
 
             };
@@ -1227,47 +1227,45 @@ function drawSupActive(ctx, yPos) {
 
                 let lineWidth = item["break"]
                 ctx.beginPath();
-                ctx.moveTo(indent, yPos += lineWidth + 1);
+                ctx.moveTo(indent, yPos += lineWidth + 3);
                 ctx.lineWidth = lineWidth;
-                ctx.lineTo((cWidth - 6), yPos);
+                ctx.lineTo((cWidth - 18), yPos);
                 ctx.stroke();
-                yPos += 3;
+                yPos += 9;
 
             } else {
 
                 ctx.beginPath();
-                ctx.moveTo(indent, yPos += 4);
-                ctx.lineWidth = 1;
-                ctx.lineTo((cWidth - 6), yPos);
+                ctx.moveTo(indent, yPos += 12);
+                ctx.lineWidth = 3;
+                ctx.lineTo((cWidth - 18), yPos);
                 ctx.stroke();
 
         }
 
 
         ctx.textAlign = "start";
-        ctx.font = '9pt Arial';
-        console.log(canvasValues[key].units);
+        ctx.font = '27pt Arial';
 
         if (key == "transFat") {
 
-                ctx.font='italic 9pt Arial';
-                ctx.fillText('Trans', indent, yPos += 13);
-                ctx.font = '9pt Arial';
-                ctx.fillText('Fat ' + item["value"] + item["units"], 53, yPos);
+                ctx.font='italic 27pt Arial';
+                ctx.fillText('Trans', indent, yPos += 39);
+                ctx.font = '27pt Arial';
+                ctx.fillText('Fat ' + item["value"] + item["units"], 159, yPos);
 
         } else if (key == "addSugar") {
 
-                ctx.fillText('Includes', indent, yPos += 13);
-                ctx.fillText( item["value"] + 'g Added Sugars', 83, yPos);
+                ctx.fillText('Includes', indent, yPos += 39);
+                ctx.fillText( item["value"] + 'g Added Sugars', 249, yPos);
 
         } else if ( item["units"] == 'none') {
 
-                ctx.fillText(item["label"] + " " + item["value"], indent, yPos += 13);
-                console.log(item["units"]);
+                ctx.fillText(item["label"] + " " + item["value"], indent, yPos += 39);
 
         } else {
 
-                ctx.fillText(item["label"] + " " + item["value"] + item["units"], indent, yPos += 13);               
+                ctx.fillText(item["label"] + " " + item["value"] + item["units"], indent, yPos += 39);               
 
             }
 
@@ -1281,22 +1279,22 @@ function drawSupActive(ctx, yPos) {
                 if (item["section"] == "add") {
 
                     ctx.textAlign="right";
-                    ctx.font='9pt Arial';
-                    ctx.fillText( calPerc , (cWidth - 6), yPos);
+                    ctx.font='27pt Arial';
+                    ctx.fillText( calPerc , (cWidth - 18), yPos);
 
                 } else {
 
                     ctx.textAlign="right";
-                    ctx.font='9pt Arial';
-                    ctx.fillText( calPerc , (cWidth - 6), yPos);
+                    ctx.font='27pt Arial';
+                    ctx.fillText( calPerc , (cWidth - 18), yPos);
 
                 }
 
             } else if ( key == 'cal' || key == 'calFat' ) {
 
                 ctx.textAlign="right";
-                ctx.font='9pt Arial';
-                ctx.fillText( " " , (cWidth - 6), yPos);
+                ctx.font='27pt Arial';
+                ctx.fillText( " " , (cWidth - 18), yPos);
 
             }
 
@@ -1305,8 +1303,8 @@ function drawSupActive(ctx, yPos) {
                 noDvActive = true;
 
                 ctx.textAlign="right";
-                ctx.font='10pt Arial';
-                ctx.fillText( '\u271D' , (cWidth - 6), yPos);
+                ctx.font='30pt Arial';
+                ctx.fillText( '\u271D' , (cWidth - 18), yPos);
 
             }
         }
@@ -1363,71 +1361,71 @@ function drawSup() {
         let yPos = 0;
         
         //Outside Border
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 6;
         ctx.strokeRect(0, 0, cWidth, cHeight);
         
         //Supplement Fact Heading
         ctx.textAlign="start";
-        ctx.font='800 19.8pt Arial';
-        ctx.fillText('Supplement Facts', 6, yPos += 29);
+        ctx.font='800 59.5pt Arial';
+        ctx.fillText('Supplement Facts', 18, yPos += 87);
         
         //Servings Size 
-        ctx.font='9pt Arial';
-        ctx.fillText('Serving size' + " " + canvasValues["servingSize"]["value"], 6, yPos += 19);
+        ctx.font='27pt Arial';
+        ctx.fillText('Serving size' + " " + canvasValues["servingSize"]["value"], 18, yPos += 49);
 
         //Servings Per Container
-        ctx.font='9pt Arial';
-        ctx.fillText('Servings Per Container' + " " + canvasValues["servingPerCont"]["value"], 6, yPos += 13);
+        ctx.font='27pt Arial';
+        ctx.fillText('Servings Per Container' + " " + canvasValues["servingPerCont"]["value"], 18, yPos += 39);
              
         //7 pt seperator line
         ctx.beginPath();
-        ctx.moveTo(6, yPos += 10); 
-        ctx.lineWidth = 7;
-        ctx.lineTo((cWidth - 6), yPos);
+        ctx.moveTo(18, yPos += 30); 
+        ctx.lineWidth = 21;
+        ctx.lineTo((cWidth - 18), yPos);
         ctx.stroke();
         
         //Amount Per Serving Title
         ctx.textAlign="left"; 
-        ctx.font='Bold 8pt Arial';
-        ctx.fillText('Amount per serving', 6, yPos += 18); 
+        ctx.font='Bold 24pt Arial';
+        ctx.fillText('Amount per serving', 18, yPos += 54); 
         
         
         //% Daily Value
         ctx.textAlign="center"; 
-        ctx.font='Bold 8pt Arial';
-        ctx.fillText('% Daily Value', (cWidth - 41), yPos); 
+        ctx.font='Bold 24pt Arial';
+        ctx.fillText('% Daily Value', (cWidth - 123), yPos); 
         
         //3 pt seperator line
         ctx.beginPath();
-        ctx.moveTo(6, yPos += 6);
-        ctx.lineWidth = 3;
-        ctx.lineTo((cWidth - 6), yPos);
+        ctx.moveTo(18, yPos += 18);
+        ctx.lineWidth = 9;
+        ctx.lineTo((cWidth - 18), yPos);
         ctx.stroke();
         
         //Additional
-        yPos -= 2;
+        yPos -= 6;
         let lastypos = drawSupActive(ctx, yPos);
 
         //7 pt seperator line
         ctx.beginPath();
-        ctx.moveTo(6, lastypos += 10); 
-        ctx.lineWidth = 7;
-        ctx.lineTo((cWidth - 6), lastypos);
+        ctx.moveTo(18, lastypos += 30); 
+        ctx.lineWidth = 21;
+        ctx.lineTo((cWidth - 18), lastypos);
         ctx.stroke();
 
         //Disclosure Section 
         ctx.textAlign="start";
-        ctx.font='6.2pt Arial';
+        ctx.font='18.6pt Arial';
 
         if (dvActive) {
 
-            ctx.fillText('* Percent Daily Values are based on a 2,000 calorie diet', 6, lastypos += 15);
+            ctx.fillText('* Percent Daily Values are based on a 2,000 calorie diet', 18, lastypos += 45);
 
         }
 
         if (noDvActive) {
 
-            ctx.fillText('\u271D Daily Value (DV) not established', 6, lastypos += 13);            
+            ctx.fillText('\u271D Daily Value (DV) not established', 18, lastypos += 39);            
 
         }
     }
@@ -1440,90 +1438,94 @@ function draw() {
     if (canvas.getContext) {
 
         let ctx = canvas.getContext('2d');
+
         setCanvasDim("nutri");
         ctx.canvas.width  = cWidth;
-        ctx.canvas.height = cHeight;
+        ctx.canvas.height = cHeight;      
 
         let yPos = 0;
         
         //Outside Border
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 6;
         ctx.strokeRect(0, 0, cWidth, cHeight);
         
         //Nutrition Fact Heading
-        ctx.font='bold 22.7pt Arial';
-        ctx.fillText('Nutrition Facts', 6, yPos += 29);
+        ctx.font='bold 68.1pt Arial';
+        ctx.fillText('Nutrition Facts', 18, yPos += 87);
         
         //1/4 pt seperator line
         ctx.beginPath();
-        ctx.moveTo(6, yPos += 5);
-        ctx.lineWidth = 1;
-        ctx.lineTo((cWidth - 6), yPos); //34
+        ctx.moveTo(18, yPos += 15);
+        ctx.lineWidth = 3;
+        ctx.lineTo((cWidth - 18), yPos); //34
         ctx.stroke();
         
         //Servings per container
-        ctx.font='10pt Arial';
-        ctx.fillText(canvasValues["servingPerCont"]["value"] + ' Servings per container', 6, yPos += 14);
+        ctx.font='30pt Arial';
+        ctx.fillText(canvasValues["servingPerCont"]["value"] + ' Servings per container', 18, yPos += 42);
         
         //Servings Size title
-        ctx.font='Bold 11pt Arial';
-        ctx.fillText('Serving size', 6, yPos += 16);       
-        ctx.font='Bold 11pt Arial';
+        ctx.font='Bold 33pt Arial';
+        ctx.fillText('Serving size', 18, yPos += 48);       
+        ctx.font='Bold 33pt Arial';
         ctx.textAlign="right"; 
         ctx.fillText(canvasValues["servingSize"]["value"] + ' ' + canvasValues["servingSizeUnit"]["value"] + 
             ' (' + canvasValues["servingSizeCalc"]["value"] + 'g)'
-            , (cWidth - 6), yPos);
+            , (cWidth - 18), yPos);
         
         //7 pt seperator line
         ctx.beginPath();
-        ctx.moveTo(6, yPos += 10); 
-        ctx.lineWidth = 7;
-        ctx.lineTo((cWidth - 6), yPos);
+        ctx.moveTo(18, yPos += 30); 
+        ctx.lineWidth = 21;
+        ctx.lineTo((cWidth - 18), yPos);
         ctx.stroke();
         
         //Amount Per Serving Title
         ctx.textAlign="start"; 
-        ctx.font='Bold 8pt Arial';
-        ctx.fillText('Amount per serving', 6, yPos += 17); 
+        ctx.font='Bold 24pt Arial';
+        ctx.fillText('Amount per serving', 18, yPos += 51); 
         
         //Calories Title
-        ctx.font='Bold 18pt Arial';
-        ctx.fillText('Calories', 6, yPos += 21);
+        ctx.font='Bold 54pt Arial';
+        ctx.fillText('Calories', 18, yPos += 63);
         
         //Calories Value
         ctx.textAlign="right";
-        ctx.font='Bold 25pt Arial';
-        ctx.fillText(canvasValues["cal"]["value"], (cWidth - 6), yPos);
+        ctx.font='Bold 75pt Arial';
+        ctx.fillText(canvasValues["cal"]["value"], (cWidth - 18), yPos);
         
         //4 pt seperator line
         ctx.beginPath();
-        ctx.moveTo(6, yPos += 8); 
-        ctx.lineWidth = 4;
-        ctx.lineTo((cWidth - 6), yPos); 
+        ctx.moveTo(18, yPos += 24); 
+        ctx.lineWidth = 12;
+        ctx.lineTo((cWidth - 18), yPos); 
         ctx.stroke();
         
         //% Daily Value
-        ctx.font='Bold 8pt Arial';
-        ctx.fillText('% Daily Value*', (cWidth - 6), yPos += 15);
+        ctx.font='Bold 24pt Arial';
+        ctx.fillText('% Daily Value*', (cWidth - 18), yPos += 45);
 
         let lastypos = drawActive(ctx, yPos);
 
 
         //1/4 pt seperator line
         ctx.beginPath();
-        ctx.moveTo(6, lastypos += 5);
-        ctx.lineWidth = 1;
-        ctx.lineTo((cWidth - 6), lastypos);
+        ctx.moveTo(18, lastypos += 15);
+        ctx.lineWidth = 3;
+        ctx.lineTo((cWidth - 18), lastypos);
         ctx.stroke();
 
         //Disclosure Section   eventually build out with wrap function
         ctx.textAlign="start";
-        ctx.font='6.2pt Arial';
-        ctx.fillText('* The % Daily Value (DV) tells you how much a nutrient in', 6, lastypos += 13); 
-        ctx.fillText('a serving of food contributes to a daily diet. 2,000 calories', 6, lastypos += 10);
-        ctx.fillText('a day is used for general nutrition advice.', 6, lastypos += 10);
+        ctx.font='18.6pt Arial';
+        ctx.fillText('* The % Daily Value (DV) tells you how much a nutrient in', 18, lastypos += 39); 
+        ctx.fillText('a serving of food contributes to a daily diet. 2,000 calories', 18, lastypos += 30);
+        ctx.fillText('a day is used for general nutrition advice.', 18, lastypos += 30);
+
+        
 
         }
+
 }
 
 function redraw() {

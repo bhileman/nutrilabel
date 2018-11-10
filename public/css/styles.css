@@ -282,6 +282,7 @@ input:invalid {
 }
 
 
+
 .button {
 	font-family: 'Montserrat', sans-serif;
     background: rgb(0, 187, 143);
@@ -297,6 +298,7 @@ input:invalid {
     margin: 10px 0px 0px 0px;
     cursor: pointer;
 }
+
 
 
 .button:hover {
